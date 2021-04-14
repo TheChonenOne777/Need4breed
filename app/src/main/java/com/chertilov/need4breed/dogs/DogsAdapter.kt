@@ -11,7 +11,7 @@ class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
 
     private var items = listOf<String>()
 
-    private var newWidth = 0
+    private var itemSize = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DogViewHolder(ImageView(parent.context).apply {
@@ -19,8 +19,9 @@ class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
-            if (newWidth == 0) newWidth = parent.width / DogsActivity.NUMBER_OF_COLUMNS
-            layoutParams.width = newWidth
+            if (itemSize == 0) itemSize = parent.width / DogsActivity.NUMBER_OF_COLUMNS
+            layoutParams.width = itemSize
+            layoutParams.height = itemSize
             scaleType = ImageView.ScaleType.CENTER_CROP
         })
 
