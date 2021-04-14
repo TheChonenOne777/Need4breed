@@ -33,7 +33,7 @@ class DogsActivity : AppCompatActivity() {
         adapter.setItems(dogs)
     }
 
-    companion object{
+    companion object {
         const val NUMBER_OF_COLUMNS = 3
     }
 }

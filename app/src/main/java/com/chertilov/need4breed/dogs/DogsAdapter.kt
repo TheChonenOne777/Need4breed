@@ -14,19 +14,20 @@ class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
     private var newWidth = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DogViewHolder(ImageView(parent.context).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                if (newWidth == 0) newWidth = parent.width / DogsActivity.NUMBER_OF_COLUMNS
-                layoutParams.width = newWidth
-            })
+        DogViewHolder(ImageView(parent.context).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            if (newWidth == 0) newWidth = parent.width / DogsActivity.NUMBER_OF_COLUMNS
+            layoutParams.width = newWidth
+            scaleType = ImageView.ScaleType.CENTER_CROP
+        })
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         Glide.with(holder.itemView)
-                .load(getItem(position))
-                .into(holder.itemView as ImageView)
+            .load(getItem(position))
+            .into(holder.itemView as ImageView)
     }
 
     override fun getItemCount() = items.size
