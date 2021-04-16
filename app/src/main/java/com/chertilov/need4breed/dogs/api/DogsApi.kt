@@ -16,19 +16,19 @@ interface DogsApi {
         private var instance: DogsApi? = null
 
         private val httpLoggingInterceptor = HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
+                .setLevel(HttpLoggingInterceptor.Level.BODY)
 
         private val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .build()
+                .addInterceptor(httpLoggingInterceptor)
+                .build()
 
         fun getInstance(): DogsApi = instance ?: Retrofit.Builder()
-            .client(okHttpClient)
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(DogsApi::class.java)
-            .also { instance = it }
+                .client(okHttpClient)
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(DogsApi::class.java)
+                .also { instance = it }
 
     }
 }

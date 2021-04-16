@@ -15,7 +15,7 @@ class DogsActivity : AppCompatActivity() {
     private val recycler by bind<RecyclerView>(R.id.dogs_recycler)
 
     private val viewModel: DogsViewModel by viewModels {
-        ViewModelFactoryInjector.provideDogsViewModel()
+        ViewModelFactoryInjector.provideDogsViewModel(this)
     }
 
     private val adapter by lazy {
