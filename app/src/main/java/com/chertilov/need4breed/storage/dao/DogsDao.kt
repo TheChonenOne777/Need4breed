@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface DogsDao {
 
     @Query("SELECT * from dogs")
-    fun getAll(): List<String>
+    fun getAll(): Flow<List<String>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(dogs: List<String>)

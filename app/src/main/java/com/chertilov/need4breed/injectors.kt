@@ -3,6 +3,7 @@ package com.chertilov.need4breed
 import android.content.Context
 import com.chertilov.need4breed.base.ViewModelFactory
 import com.chertilov.need4breed.dogs.api.DogsApi
+import com.chertilov.need4breed.dogs.interactor.GetDogsUseCase
 import com.chertilov.need4breed.dogs.interactor.RequestDogsUseCase
 import com.chertilov.need4breed.dogs.repo.DogsRepository
 import com.chertilov.need4breed.dogs.repo.DogsRepositoryImpl
@@ -26,9 +27,13 @@ object RepositoryInjectors {
 object UseCaseInjectors {
 
     fun provideRequestDogsUsecase(context: Context) = RequestDogsUseCase(RepositoryInjectors.bindDogsRepository(context))
+    fun provideGetDogsUsecase(context: Context) = GetDogsUseCase(RepositoryInjectors.bindDogsRepository(context))
 }
 
 object ViewModelFactoryInjector {
 
-    fun provideDogsViewModel(context: Context) = ViewModelFactory(UseCaseInjectors.provideRequestDogsUsecase(context))
+    fun provideDogsViewModel(context: Context) = ViewModelFactory(
+            UseCaseInjectors.provideRequestDogsUsecase(context),
+            UseCaseInjectors.provideGetDogsUsecase(context)
+    )
 }
