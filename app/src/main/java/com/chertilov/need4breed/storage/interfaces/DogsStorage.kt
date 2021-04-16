@@ -1,15 +1,17 @@
 package com.chertilov.need4breed.storage.interfaces
 
 import com.chertilov.need4breed.storage.dao.DogsDao
+import com.chertilov.need4breed.storage.entities.Dog
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 interface DogsStorage {
 
-    fun getDogs(): Flow<List<String>>
+    fun getDogs(): Flow<List<Dog>>
 
-    suspend fun saveDogs(dogs: List<String>)
+    suspend fun saveDogs(dogs: List<Dog>)
 }
 
 class DogsRoomStorage private constructor(
@@ -17,9 +19,9 @@ class DogsRoomStorage private constructor(
         private val ioDispatcher: CoroutineDispatcher
 ) : DogsStorage {
 
-    override fun getDogs(): Flow<List<String>> = dogsDao.getAll()
+    override fun getDogs(): Flow<List<Dog>> = dogsDao.getAll()
 
-    override suspend fun saveDogs(dogs: List<String>) = withContext(ioDispatcher) {
+    override suspend fun saveDogs(dogs: List<Dog>) = withContext(ioDispatcher) {
         dogsDao.insert(dogs)
     }
 

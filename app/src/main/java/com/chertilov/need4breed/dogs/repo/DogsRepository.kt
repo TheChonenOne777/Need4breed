@@ -1,6 +1,7 @@
 package com.chertilov.need4breed.dogs.repo
 
 import com.chertilov.need4breed.dogs.api.DogsApi
+import com.chertilov.need4breed.storage.entities.Dog
 import com.chertilov.need4breed.storage.interfaces.DogsStorage
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -10,7 +11,7 @@ interface DogsRepository {
 
     suspend fun requestDogs()
 
-    fun getDogs(): Flow<List<String>>
+    fun getDogs(): Flow<List<Dog>>
 }
 
 class DogsRepositoryImpl(
@@ -20,8 +21,8 @@ class DogsRepositoryImpl(
 ) : DogsRepository {
 
     override suspend fun requestDogs() = withContext(ioDispatcher) {
-        dogsStorage.saveDogs(dogsApi.requestDogs().message)
+        dogsStorage.saveDogs(dogsApi.requestDogs().message.map { Dog(image = it) })
     }
 
-    override fun getDogs(): Flow<List<String>> = dogsStorage.getDogs()
+    override fun getDogs(): Flow<List<Dog>> = dogsStorage.getDogs()
 }

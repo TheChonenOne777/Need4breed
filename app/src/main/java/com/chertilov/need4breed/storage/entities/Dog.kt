@@ -5,8 +5,8 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "dogs", indices = [Index("id")])
-data class StorageDog(
-    @PrimaryKey(autoGenerate = false)
-    val id: Long = 0,
-    val image: String,
+data class Dog(
+        @PrimaryKey(autoGenerate = true)
+        val id: Long = 0,
+        val image: String,
 )

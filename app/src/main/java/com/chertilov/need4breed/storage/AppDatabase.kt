@@ -5,12 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.chertilov.need4breed.storage.dao.DogsDao
-import com.chertilov.need4breed.storage.entities.StorageDog
+import com.chertilov.need4breed.storage.entities.Dog
 
 
 @Database(
         entities = [
-            StorageDog::class
+            Dog::class
         ],
         version = 1
 )
