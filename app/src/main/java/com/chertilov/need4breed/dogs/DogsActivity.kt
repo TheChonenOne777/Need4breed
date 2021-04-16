@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.need4breed.R
 import com.chertilov.need4breed.ViewModelFactoryInjector
 import com.chertilov.need4breed.utils.bind
+import com.chertilov.need4breed.utils.start
 
 class DogsActivity : AppCompatActivity() {
 
@@ -17,7 +18,13 @@ class DogsActivity : AppCompatActivity() {
         ViewModelFactoryInjector.provideDogsViewModel()
     }
 
-    private val adapter by lazy { DogsAdapter() }
+    private val adapter by lazy {
+        DogsAdapter(object : DogsAdapter.DogClickListener {
+            override fun onDogClicked(dog: String) {
+                start<DogDetailsActivity> { putExtra(DogDetailsActivity.DOG_IMG_EXTRA, dog) }
+            }
+        })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

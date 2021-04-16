@@ -7,7 +7,8 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
+class DogsAdapter(private val listener: DogClickListener) :
+    RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
 
     private var items = listOf<String>()
 
@@ -23,7 +24,7 @@ class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
             layoutParams.width = itemSize
             layoutParams.height = itemSize
             scaleType = ImageView.ScaleType.CENTER_CROP
-        })
+        }).apply { itemView.setOnClickListener { listener.onDogClicked(getItem(adapterPosition)) } }
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         Glide.with(holder.itemView)
@@ -41,4 +42,9 @@ class DogsAdapter : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
     private fun getItem(position: Int) = items[position]
 
     class DogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    interface DogClickListener {
+
+        fun onDogClicked(dog: String)
+    }
 }
