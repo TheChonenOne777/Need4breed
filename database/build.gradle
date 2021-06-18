@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion target_sdk
+    buildToolsVersion build_tools
+
+    defaultConfig {
+        minSdkVersion min_sdk
+        targetSdkVersion target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+apply from: "$project.rootDir/dependencies.gradle"
+
+dependencies {
+    implementation kotlin
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+    implementation coreKtx
+    implementation appCompat
+    implementation dagger
+    kapt daggerCompiler
+    implementation room
+    kapt roomCompiler
+    implementation roomKtx
+    implementation project(':core_api')
+    testImplementation 'junit:junit:4.+'
+}

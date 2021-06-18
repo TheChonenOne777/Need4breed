@@ -1,7 +1,7 @@
 package com.chertilov.need4breed.dogs.interactor
 
+import com.chertilov.core_api.dto.Dog
 import com.chertilov.need4breed.dogs.repo.DogsRepository
-import com.chertilov.need4breed.storage.entities.Dog
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

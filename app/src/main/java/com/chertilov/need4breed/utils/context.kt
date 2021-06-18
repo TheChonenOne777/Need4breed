@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.View
+import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
+import androidx.core.content.ContextCompat
 import kotlin.reflect.KClass
 
 
@@ -21,3 +23,5 @@ fun <T : View?> Activity.bind(@IdRes idRes: Int): Lazy<T> =
     unsafeLazy { findViewById<T>(idRes) as T }
 
 private fun <T> unsafeLazy(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
+
+fun Context.getColorCompat(@ColorRes colorRes: Int) = ContextCompat.getColor(this, colorRes)

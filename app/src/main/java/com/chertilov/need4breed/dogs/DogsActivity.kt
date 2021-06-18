@@ -5,9 +5,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.chertilov.core_api.dto.Dog
 import com.chertilov.need4breed.R
-import com.chertilov.need4breed.ViewModelFactoryInjector
-import com.chertilov.need4breed.storage.entities.Dog
 import com.chertilov.need4breed.utils.bind
 import com.chertilov.need4breed.utils.start
 
@@ -15,9 +14,7 @@ class DogsActivity : AppCompatActivity() {
 
     private val recycler by bind<RecyclerView>(R.id.dogs_recycler)
 
-    private val viewModel: DogsViewModel by viewModels {
-        ViewModelFactoryInjector.provideDogsViewModel(this)
-    }
+    private val viewModel: DogsViewModel by viewModels()
 
     private val adapter by lazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {

@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.chertilov.need4breed.storage.entities.Dog
+import com.chertilov.core_api.dto.Dog
 
 class DogsAdapter(private val listener: DogClickListener) :
     RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {

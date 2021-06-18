@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion target_sdk
+    buildToolsVersion build_tools
+
+    defaultConfig {
+        minSdkVersion min_sdk
+        targetSdkVersion target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+apply from: "$project.rootDir/dependencies.gradle"
+
+dependencies {
+    api project(':core_api')
+    implementation project(':core_impl')
+    implementation project(':database')
+    implementation project(':network')
+    implementation kotlin
+    implementation coreKtx
+    implementation appCompat
+    testImplementation 'junit:junit:4.+'
+}

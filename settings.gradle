@@ -1,2 +1,7 @@
 include ':app'
 rootProject.name = "Need4breed"
+include ':core'
+include ':core_api'
+include ':core_impl'
+include ':database'
+include ':network'
