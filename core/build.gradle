@@ -32,7 +32,6 @@ dependencies {
     implementation project(':database')
     implementation project(':network')
     implementation kotlin
-    implementation coreKtx
     implementation appCompat
     testImplementation 'junit:junit:4.+'
 }

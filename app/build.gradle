@@ -38,26 +38,14 @@ apply from: "$project.rootDir/dependencies.gradle"
 
 dependencies {
     implementation project(':core')
+    implementation project(':splash')
+    implementation project(':main')
+    implementation project(':dogs')
 //    Ktx
     implementation kotlin
-    implementation coreKtx
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
-    implementation 'androidx.activity:activity-ktx:1.2.3'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-//    Android
-    implementation appCompat
-    implementation material
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-//    Network
-    implementation retrofit
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation okhttp3
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
 //    DI
     implementation dagger
     kapt daggerCompiler
-//    Other
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
 //    Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

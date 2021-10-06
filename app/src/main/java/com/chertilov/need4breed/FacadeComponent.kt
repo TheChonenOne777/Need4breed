@@ -10,6 +10,7 @@ import dagger.Component
 
 @Component(
     dependencies = [AppProvider::class, DatabaseProvider::class, NetworkProvider::class],
+    modules = [MediatorBindings::class]
 )
 interface FacadeComponent : ProvidersFacade {
 

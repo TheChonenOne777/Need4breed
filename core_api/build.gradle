@@ -33,5 +33,6 @@ dependencies {
     implementation coreKtx
     implementation appCompat
     implementation dagger
+    implementation material
     testImplementation 'junit:junit:4.+'
 }
