@@ -1,3 +1,5 @@
 package com.chertilov.core_api.mediators
 
-interface ProvidersFacade: AppProvider, MediatorProvider
+import com.chertilov.core_api.database.DatabaseProvider
+
+interface ProvidersFacade: AppProvider, MediatorProvider, DatabaseProvider

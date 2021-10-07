@@ -41,6 +41,8 @@ dependencies {
     implementation project(':splash')
     implementation project(':main')
     implementation project(':dogs')
+    implementation project(':utils')
+    implementation project(':navigation')
 //    Ktx
     implementation kotlin
 //    DI

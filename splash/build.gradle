@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -35,7 +36,7 @@ apply from: "$project.rootDir/dependencies.gradle"
 
 
 dependencies {
-    implementation project(':core_api')
+    implementation project(':core')
 //    Ktx
     implementation kotlin
     implementation coreKtx
@@ -43,6 +44,7 @@ dependencies {
     implementation appCompat
 //    DI
     implementation dagger
+    kapt daggerCompiler
 //    Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

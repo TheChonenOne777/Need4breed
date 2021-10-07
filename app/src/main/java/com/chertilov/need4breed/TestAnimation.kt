@@ -13,7 +13,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import com.chertilov.dogs.R
-import com.chertilov.dogs.utils.getColorCompat
+import com.chertilov.utils.getColorCompat
 
 class LaunchProgressView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
