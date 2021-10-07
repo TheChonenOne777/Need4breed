@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.core_api.dto.Dog
@@ -27,7 +28,7 @@ class DogsFragment : Fragment() {
     private val adapter by lazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {
             override fun onDogClicked(dog: Dog) {
-//                requireActivity().start<DogDetailsFragment> { putExtra(DogDetailsFragment.DOG_IMG_EXTRA, dog.image) }
+                findNavController().navigate(DogsFragmentDirections.actionDogFragmentToDogDetailsFragment(dog.image))
             }
         })
     }

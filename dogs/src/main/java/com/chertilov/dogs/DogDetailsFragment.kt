@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.dogs.di.DogsComponent
@@ -18,9 +18,12 @@ class DogDetailsFragment : Fragment() {
     private val dogImg by bind<ImageView>(R.id.img_dog)
     private val toolbar by bind<Toolbar>(R.id.toolbar)
 
+    private val dogImageArg: DogDetailsFragmentArgs by navArgs()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DogsComponent.create((requireActivity().application as AppWithFacade).getFacade()).inject(this)
+        DogsComponent.create((requireActivity().application as AppWithFacade).getFacade())
+            .inject(this)
     }
 
     override fun onCreateView(
@@ -39,6 +42,10 @@ class DogDetailsFragment : Fragment() {
 //            toolbar.title = it.substringAfter("breeds/", "").substringBefore("/")
 //            Glide.with(this).load(it).into(dogImg)
 //        }
+        dogImageArg.image.let {
+            toolbar.title = it.substringAfter("breeds/", "").substringBefore("/")
+            Glide.with(this).load(it).into(dogImg)
+        }
     }
 
     companion object {

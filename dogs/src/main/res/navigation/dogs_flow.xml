@@ -9,11 +9,23 @@
         android:name="com.chertilov.dogs.DogsFragment">
         <action
             android:id="@+id/action_dogFragment_to_dogDetailsFragment"
-            app:destination="@id/dogDetailsFragment" />
+            app:destination="@id/dogDetailsFragment">
+
+            <argument
+                android:name="image"
+                app:argType="string" />
+
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/dogDetailsFragment"
-        android:name="com.chertilov.dogs.DogDetailsFragment"/>
+        android:name="com.chertilov.dogs.DogDetailsFragment">
+
+        <argument
+            android:defaultValue=""
+            android:name="image"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
