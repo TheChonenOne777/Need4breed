@@ -1,4 +1,4 @@
-package com.chertilov.dogs.utils
+package com.chertilov.utils
 
 import android.app.Activity
 import android.content.Context

@@ -19,8 +19,10 @@
             <option value="$PROJECT_DIR$/database" />
             <option value="$PROJECT_DIR$/dogs" />
             <option value="$PROJECT_DIR$/main" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/splash" />
+            <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

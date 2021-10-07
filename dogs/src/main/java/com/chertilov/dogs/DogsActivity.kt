@@ -3,19 +3,24 @@ package com.chertilov.dogs
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.dogs.di.DogsComponent
-import com.chertilov.dogs.utils.bind
-import com.chertilov.dogs.utils.start
+import com.chertilov.utils.bind
+import com.chertilov.utils.start
+import javax.inject.Inject
 
 class DogsActivity : AppCompatActivity() {
 
     private val recycler by bind<RecyclerView>(R.id.dogs_recycler)
 
-    private val viewModel: DogsViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel: DogsViewModel by viewModels { viewModelFactory }
 
     private val adapter by lazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {

@@ -3,6 +3,7 @@ package com.chertilov.dogs.di
 import com.chertilov.core.CoreProvidersFactory
 import com.chertilov.core_api.mediators.ProvidersFacade
 import com.chertilov.core_api.viewmodel.ViewModelsProvider
+import com.chertilov.dogs.DogDetailsActivity
 import com.chertilov.dogs.DogsActivity
 import dagger.Component
 import javax.inject.Singleton
@@ -22,5 +23,6 @@ interface DogsComponent : ViewModelsProvider {
                 .build()
     }
 
-    fun inject(dogsFragment: DogsActivity)
+    fun inject(dogsActivity: DogsActivity)
+    fun inject(dogDetailsActivity: DogDetailsActivity)
 }

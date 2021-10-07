@@ -8,16 +8,16 @@ import com.chertilov.core_api.dto.Dog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DogsViewModel(
-    getDogsUseCase: GetDogsUseCase,
-    private val requestDogsUseCase: RequestDogsUseCase
+class DogsViewModel @Inject constructor(
+    private val dogsInteractor: DogsInteractor
 ) : ViewModel() {
 
-    val dogs: LiveData<List<Dog>> = getDogsUseCase().flowOn(Dispatchers.IO).asLiveData()
+    val dogs: LiveData<List<Dog>> = dogsInteractor.getDogs().flowOn(Dispatchers.IO).asLiveData()
 
     fun onActivityCreated() {
-        viewModelScope.launch { requestDogsUseCase() }
+        viewModelScope.launch { dogsInteractor.requestDogs() }
     }
 
 }
