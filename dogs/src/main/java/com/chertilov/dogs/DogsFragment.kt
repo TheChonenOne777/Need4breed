@@ -1,8 +1,11 @@
 package com.chertilov.dogs
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,10 +13,9 @@ import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.dogs.di.DogsComponent
 import com.chertilov.utils.bind
-import com.chertilov.utils.start
 import javax.inject.Inject
 
-class DogsActivity : AppCompatActivity() {
+class DogsFragment : Fragment() {
 
     private val recycler by bind<RecyclerView>(R.id.dogs_recycler)
 
@@ -25,20 +27,32 @@ class DogsActivity : AppCompatActivity() {
     private val adapter by lazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {
             override fun onDogClicked(dog: Dog) {
-                start<DogDetailsActivity> { putExtra(DogDetailsActivity.DOG_IMG_EXTRA, dog.image) }
+//                requireActivity().start<DogDetailsFragment> { putExtra(DogDetailsFragment.DOG_IMG_EXTRA, dog.image) }
             }
         })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DogsComponent.create((application as AppWithFacade).getFacade()).inject(this)
-        setContentView(R.layout.activity_dogs)
+        DogsComponent.create((requireActivity().application as AppWithFacade).getFacade())
+            .inject(this)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_dogs, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         recycler.adapter = adapter
         recycler.layoutManager =
-            GridLayoutManager(this, NUMBER_OF_COLUMNS, RecyclerView.VERTICAL, false)
+            GridLayoutManager(requireContext(), NUMBER_OF_COLUMNS, RecyclerView.VERTICAL, false)
 
-        viewModel.dogs.observe(this) { setDogs(it) }
+        viewModel.dogs.observe(viewLifecycleOwner) { setDogs(it) }
         viewModel.onActivityCreated()
     }
 

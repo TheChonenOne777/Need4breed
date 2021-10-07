@@ -1,8 +1,7 @@
-package com.chertilov.main
+package com.chertilov.navigation.main
 
 import com.chertilov.core_api.mediators.ProvidersFacade
 import dagger.Component
-import javax.inject.Singleton
 
 @Component(
     dependencies = [ProvidersFacade::class]

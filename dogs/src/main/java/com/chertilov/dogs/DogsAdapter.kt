@@ -21,7 +21,7 @@ class DogsAdapter(private val listener: DogClickListener) :
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
-            if (itemSize == 0) itemSize = parent.width / DogsActivity.NUMBER_OF_COLUMNS
+            if (itemSize == 0) itemSize = parent.width / DogsFragment.NUMBER_OF_COLUMNS
             layoutParams.width = itemSize
             layoutParams.height = itemSize
             scaleType = ImageView.ScaleType.CENTER_CROP

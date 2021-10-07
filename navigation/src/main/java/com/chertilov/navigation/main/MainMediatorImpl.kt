@@ -1,4 +1,4 @@
-package com.chertilov.main
+package com.chertilov.navigation.main
 
 import android.content.Context
 import android.content.Intent

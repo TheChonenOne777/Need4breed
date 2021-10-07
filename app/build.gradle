@@ -39,7 +39,6 @@ apply from: "$project.rootDir/dependencies.gradle"
 dependencies {
     implementation project(':core')
     implementation project(':splash')
-    implementation project(':main')
     implementation project(':dogs')
     implementation project(':utils')
     implementation project(':navigation')

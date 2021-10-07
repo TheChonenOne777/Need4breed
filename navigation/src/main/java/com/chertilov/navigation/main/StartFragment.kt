@@ -1,4 +1,4 @@
-package com.chertilov.main
+package com.chertilov.navigation.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
+import com.chertilov.navigation.R
 import javax.inject.Inject
 
 

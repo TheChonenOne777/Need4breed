@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -39,8 +40,12 @@ dependencies {
 //    Ktx
     implementation kotlin
     implementation coreKtx
+//    Android
+    implementation appCompat
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 //    DI
     implementation dagger
+    kapt daggerCompiler
 //    Navigation
     implementation navigationFragment
     implementation navigationUi

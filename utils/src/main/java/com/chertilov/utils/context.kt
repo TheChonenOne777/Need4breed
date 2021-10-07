@@ -7,6 +7,7 @@ import android.view.View
 import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import kotlin.reflect.KClass
 
 
@@ -19,8 +20,8 @@ inline fun Context.startActivity(klass: KClass<*>, init: Intent.() -> Unit = {})
 
 fun <T : View?> View.bind(@IdRes idRes: Int): Lazy<T> = unsafeLazy { findViewById<T>(idRes) as T }
 
-fun <T : View?> Activity.bind(@IdRes idRes: Int): Lazy<T> =
-    unsafeLazy { findViewById<T>(idRes) as T }
+fun <T : View?> Fragment.bind(@IdRes idRes: Int): Lazy<T> =
+    unsafeLazy { requireActivity().findViewById<T>(idRes) as T }
 
 private fun <T> unsafeLazy(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
 

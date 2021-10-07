@@ -1,11 +1,9 @@
-package com.chertilov.main
+package com.chertilov.navigation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.navigation.Navigator
-import javax.inject.Inject
+import com.chertilov.navigation.R
 
 class MainActivity : AppCompatActivity() {
 

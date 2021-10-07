@@ -2,18 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/dogs_flow"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/dogsFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="bg.dihanov.home.HomeFragment">
+        android:id="@+id/dogsFragment"
+        android:name="com.chertilov.dogs.DogsFragment">
         <action
-            android:id="@+id/action_homeFragment_to_nextFragment"
-            app:destination="@id/nextFragment" />
+            android:id="@+id/action_dogFragment_to_dogDetailsFragment"
+            app:destination="@id/dogDetailsFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/nextFragment"
-        android:name="bg.dihanov.home.NextFragment"/>
+        android:id="@+id/dogDetailsFragment"
+        android:name="com.chertilov.dogs.DogDetailsFragment"/>
 
 </navigation>
