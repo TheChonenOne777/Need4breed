@@ -15,5 +15,7 @@ object CoreProvidersFactory {
 
     fun createNetworkBuilder(): NetworkProvider = DaggerNetworkComponent.builder().build()
 
-    fun createViewModelBuilder(): ViewModelsProvider = DaggerViewModelComponent.create()
+    fun createViewModelBuilder(): ViewModelsProvider {
+        return DaggerViewModelComponent.create()
+    }
 }

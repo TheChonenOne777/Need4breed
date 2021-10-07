@@ -29,5 +29,12 @@ abstract class DogsModule {
         ): ViewModel = DogsViewModel(interactor).also {
             map[DogsViewModel::class.java] = it
         }
+
+        @Provides
+        @Singleton
+        @JvmStatic
+        fun provideDummy(viewModel: ViewModel) = EagerTrigger()
     }
 }
+
+class EagerTrigger

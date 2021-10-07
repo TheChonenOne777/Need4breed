@@ -7,25 +7,31 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.dogs.di.DogsComponent
+import com.chertilov.dogs.di.EagerTrigger
 import com.chertilov.utils.bind
+import com.chertilov.utils.unsafeLazy
 import javax.inject.Inject
 
 class DogsFragment : Fragment() {
 
-    private val recycler by bind<RecyclerView>(R.id.dogs_recycler)
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel: DogsViewModel by viewModels { viewModelFactory }
+    @Inject
+    lateinit var eagerTrigger: EagerTrigger
 
-    private val adapter by lazy {
+//    private val viewModel: DogsViewModel by viewModels { viewModelFactory }
+    private lateinit var viewModel: DogsViewModel
+
+
+    private val adapter by unsafeLazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {
             override fun onDogClicked(dog: Dog) {
                 findNavController().navigate(DogsFragmentDirections.actionDogFragmentToDogDetailsFragment(dog.image))
@@ -37,6 +43,7 @@ class DogsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         DogsComponent.create((requireActivity().application as AppWithFacade).getFacade())
             .inject(this)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(DogsViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -49,6 +56,7 @@ class DogsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val recycler by view.bind<RecyclerView>(R.id.dogs_recycler)
         recycler.adapter = adapter
         recycler.layoutManager =
             GridLayoutManager(requireContext(), NUMBER_OF_COLUMNS, RecyclerView.VERTICAL, false)

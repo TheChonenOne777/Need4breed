@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.navigation.R
@@ -32,7 +33,7 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // decide where to go on the first app launch, check auth tokens if login needed etc...
-        dogsMediator.openDogsFlow(requireActivity())
+        dogsMediator.openDogsFlow(findNavController())
 //        (0..1).random().let {
 //            when (it) {
 //                0 -> (requireActivity() as ToFlowNavigatable).navigateToFlow(NavigationFlow.HomeFlow)

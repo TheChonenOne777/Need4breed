@@ -1,14 +1,15 @@
 package com.chertilov.navigation.mediators
 
-import android.app.Activity
+import androidx.navigation.NavController
 import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.navigation.NavFlow
 import com.chertilov.navigation.Navigator
+import com.chertilov.navigation.R
 import javax.inject.Inject
 
 class DogsMediatorImpl @Inject constructor(private val navigator: Navigator) : DogsMediator {
 
-    override fun openDogsFlow(activity: Activity) {
-        navigator.navigate(activity, NavFlow.DogsFlow)
+    override fun openDogsFlow(navController: NavController) {
+        navigator.navigate(navController, NavFlow.DogsFlow)
     }
 }

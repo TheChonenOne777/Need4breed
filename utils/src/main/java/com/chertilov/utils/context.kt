@@ -23,6 +23,6 @@ fun <T : View?> View.bind(@IdRes idRes: Int): Lazy<T> = unsafeLazy { findViewByI
 fun <T : View?> Fragment.bind(@IdRes idRes: Int): Lazy<T> =
     unsafeLazy { requireActivity().findViewById<T>(idRes) as T }
 
-private fun <T> unsafeLazy(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
+fun <T> unsafeLazy(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
 
 fun Context.getColorCompat(@ColorRes colorRes: Int) = ContextCompat.getColor(this, colorRes)

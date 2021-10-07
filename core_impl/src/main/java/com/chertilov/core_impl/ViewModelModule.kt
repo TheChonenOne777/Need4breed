@@ -11,7 +11,7 @@ class ViewModelModule {
 
     @Provides
     @Singleton
-    fun viewModelsHolder(): @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>{
+    fun viewModelsHolder(): @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel> {
         return mutableMapOf()
     }
 

@@ -38,10 +38,6 @@ class DogDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
-//        intent.getStringExtra(DOG_IMG_EXTRA)?.let {
-//            toolbar.title = it.substringAfter("breeds/", "").substringBefore("/")
-//            Glide.with(this).load(it).into(dogImg)
-//        }
         dogImageArg.image.let {
             toolbar.title = it.substringAfter("breeds/", "").substringBefore("/")
             Glide.with(this).load(it).into(dogImg)

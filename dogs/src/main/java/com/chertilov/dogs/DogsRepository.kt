@@ -4,8 +4,10 @@ import com.chertilov.core_api.database.DogsStorage
 import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.network.DogsNetwork
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 interface DogsRepository {
 
@@ -14,13 +16,12 @@ interface DogsRepository {
     fun getDogs(): Flow<List<Dog>>
 }
 
-class DogsRepositoryImpl(
+class DogsRepositoryImpl @Inject constructor(
     private val dogsNetwork: DogsNetwork,
-    private val dogsStorage: DogsStorage,
-    private val ioDispatcher: CoroutineDispatcher
+    private val dogsStorage: DogsStorage
 ) : DogsRepository {
 
-    override suspend fun requestDogs() = withContext(ioDispatcher) {
+    override suspend fun requestDogs() = withContext(Dispatchers.IO) {
         dogsStorage.saveDogs(dogsNetwork.requestDogs())
     }
 

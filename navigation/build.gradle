@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -47,8 +48,8 @@ dependencies {
     implementation dagger
     kapt daggerCompiler
 //    Navigation
-    implementation navigationFragment
-    implementation navigationUi
+    api navigationFragment
+    api navigationUi
 //    Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

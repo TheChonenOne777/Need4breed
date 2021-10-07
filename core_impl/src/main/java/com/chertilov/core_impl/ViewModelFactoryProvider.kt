@@ -10,7 +10,11 @@ class ViewModelFactoryProvider @Inject constructor(
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return creators.entries.find { modelClass.isAssignableFrom(it.key) }?.value as T
-            ?: throw ClassNotFoundException("No model provided for ${modelClass.simpleName}")
+        val found = creators.entries.find {
+            modelClass.isAssignableFrom(it.key)
+        }
+        val creator = found?.value
+            ?: throw ClassNotFoundException("no model provided with for ${modelClass.simpleName}")
+        return creator as T
     }
 }

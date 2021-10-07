@@ -7,7 +7,6 @@ ext {
             retrofit  : '2.9.0',
             okhttp    : '3.14.9',
             room      : '2.3.0',
-            navigation: '2.3.5'
     ]
 
     kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -22,6 +21,6 @@ ext {
     okhttp3 = "com.squareup.okhttp3:okhttp:${versions.okhttp}"
     retrofit = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
     retrofit = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
-    navigationFragment = "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
-    navigationUi = "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+    navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    navigationUi = "androidx.navigation:navigation-ui-ktx:$navigation_version"
 }

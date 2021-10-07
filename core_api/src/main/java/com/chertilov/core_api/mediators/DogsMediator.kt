@@ -1,7 +1,8 @@
 package com.chertilov.core_api.mediators
 
-import android.app.Activity
+import androidx.navigation.NavController
 
 interface DogsMediator {
-    fun openDogsFlow(activity: Activity)
+
+    fun openDogsFlow(navController: NavController)
 }
