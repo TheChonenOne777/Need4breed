@@ -1,7 +1,7 @@
 package com.chertilov.core_api.mediators
 
-import android.content.Context
+import android.app.Activity
 
 interface DogsMediator {
-    fun openDogsActivity(context: Context)
+    fun openDogsFlow(activity: Activity)
 }

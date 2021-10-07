@@ -48,10 +48,13 @@ dependencies {
 //    Android
     implementation appCompat
     implementation material
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 //    DI
     implementation dagger
     kapt daggerCompiler
+//    Navigation
+    implementation navigationFragment
+    implementation navigationUi
 //    Other
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 //    Tests
