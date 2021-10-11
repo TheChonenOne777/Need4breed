@@ -21,9 +21,7 @@ class DogsRepositoryImpl @Inject constructor(
     private val dogsStorage: DogsStorage
 ) : DogsRepository {
 
-    override suspend fun requestDogs() = withContext(Dispatchers.IO) {
-        dogsStorage.saveDogs(dogsNetwork.requestDogs())
-    }
+    override suspend fun requestDogs() = dogsStorage.saveDogs(dogsNetwork.requestDogs())
 
     override fun getDogs(): Flow<List<Dog>> = dogsStorage.getDogs()
 }

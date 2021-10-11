@@ -2,9 +2,18 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/thechosenone/AndroidStudioProjects/Need4breed/sign_key')
+            storePassword 'need4breed'
+            keyAlias 'key_need4breed'
+            keyPassword 'need4breed'
+        }
+    }
     compileSdkVersion target_sdk
     buildToolsVersion build_tools
 
@@ -22,6 +31,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
@@ -42,6 +54,8 @@ dependencies {
     implementation project(':dogs')
     implementation project(':utils')
     implementation project(':navigation')
+    implementation platform(firebaseBom)
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 //    Ktx
     implementation kotlin
 //    DI

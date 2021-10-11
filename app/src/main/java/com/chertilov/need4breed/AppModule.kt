@@ -12,7 +12,7 @@ abstract class AppModule {
     @Module
     companion object {
 
-        private const val PREFS_NAME = "dogs_shared_preferences"
+        private const val PREFS_NAME = "need4breed_shared_preferences"
 
         @JvmStatic
         @Provides

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.dogs.databinding.FragmentDogsBinding
 import com.chertilov.dogs.di.DogsComponent
 import com.chertilov.dogs.di.EagerTrigger
 import com.chertilov.utils.bind
@@ -27,9 +28,7 @@ class DogsFragment : Fragment() {
     @Inject
     lateinit var eagerTrigger: EagerTrigger
 
-//    private val viewModel: DogsViewModel by viewModels { viewModelFactory }
-    private lateinit var viewModel: DogsViewModel
-
+    private val viewModel: DogsViewModel by viewModels { viewModelFactory }
 
     private val adapter by unsafeLazy {
         DogsAdapter(object : DogsAdapter.DogClickListener {
@@ -43,7 +42,7 @@ class DogsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         DogsComponent.create((requireActivity().application as AppWithFacade).getFacade())
             .inject(this)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(DogsViewModel::class.java)
+        viewModel.onActivityCreated()
     }
 
     override fun onCreateView(
@@ -62,7 +61,6 @@ class DogsFragment : Fragment() {
             GridLayoutManager(requireContext(), NUMBER_OF_COLUMNS, RecyclerView.VERTICAL, false)
 
         viewModel.dogs.observe(viewLifecycleOwner) { setDogs(it) }
-        viewModel.onActivityCreated()
     }
 
     private fun setDogs(dogs: List<Dog>) {

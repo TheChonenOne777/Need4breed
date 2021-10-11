@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/text_size_def</item>
+    </style>
+
+    <style name="Text.Primary">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="Text.Accent">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Text.Primary.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="Text.Primary.Big">
+        <item name="android:textSize">@dimen/text_size_big</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:minHeight">@dimen/button_height_def</item>
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:paddingStart">@dimen/padding_def</item>
+        <item name="android:paddingTop">@dimen/padding_small</item>
+        <item name="android:paddingEnd">@dimen/padding_def</item>
+        <item name="android:paddingBottom">@dimen/padding_small</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.Blue">
+        <item name="android:background">@drawable/btn_rnd</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

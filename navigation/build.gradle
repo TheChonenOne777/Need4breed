@@ -38,6 +38,7 @@ apply from: "$project.rootDir/dependencies.gradle"
 
 dependencies {
     implementation project(':core_api')
+    implementation project(':base_auth')
 //    Ktx
     implementation kotlin
     implementation coreKtx

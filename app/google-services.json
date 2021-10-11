@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1011210839692",
+    "project_id": "need4breed1",
+    "storage_bucket": "need4breed1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011210839692:android:7de4921e80d9f15824fda9",
+        "android_client_info": {
+          "package_name": "com.chertilov.need4breed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011210839692-ag1u304crnb8059c886bhg630iavd203.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chertilov.need4breed",
+            "certificate_hash": "1ff7ff014b97566cffc37572ca5c070ded4fbe2a"
+          }
+        },
+        {
+          "client_id": "1011210839692-n2ka8v4jcgepp85ivskm1obqqekg7c63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp3zz2YajNPBi6zYelQLEnB8pcSXOTWfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011210839692-n2ka8v4jcgepp85ivskm1obqqekg7c63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

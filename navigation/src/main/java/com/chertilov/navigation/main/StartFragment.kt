@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.chertilov.base_auth.SessionPreferences
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
+import com.chertilov.core_api.mediators.LoginMediator
 import com.chertilov.navigation.R
 import javax.inject.Inject
 
@@ -17,9 +19,16 @@ class StartFragment : Fragment() {
     @Inject
     lateinit var dogsMediator: DogsMediator
 
+    @Inject
+    lateinit var loginMediator: LoginMediator
+
+    @Inject
+    lateinit var sessionPreferences: SessionPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MainComponent.create((requireActivity().application as AppWithFacade).getFacade()).inject(this)
+        MainComponent.create((requireActivity().application as AppWithFacade).getFacade())
+            .inject(this)
     }
 
     override fun onCreateView(
@@ -32,17 +41,7 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // decide where to go on the first app launch, check auth tokens if login needed etc...
-        dogsMediator.openDogsFlow(findNavController())
-//        (0..1).random().let {
-//            when (it) {
-//                0 -> (requireActivity() as ToFlowNavigatable).navigateToFlow(NavigationFlow.HomeFlow)
-//                1 -> (requireActivity() as ToFlowNavigatable).navigateToFlow(
-//                    NavigationFlow.DashboardFlow(
-//                        "From start fragment"
-//                    )
-//                )
-//            }
-//        }
+        if (sessionPreferences.isLoggedIn()) dogsMediator.openDogsFlow(findNavController())
+        else loginMediator.openLoginFlow(findNavController())
     }
 }

@@ -7,5 +7,6 @@ class Navigator @Inject constructor() {
 
     fun navigate(navController: NavController, flow: NavFlow) = when (flow) {
         NavFlow.DogsFlow -> navController.navigate(MainNavGraphDirections.actionGlobalDogsFlow())
+        NavFlow.LoginFlow -> navController.navigate(MainNavGraphDirections.actionGlobalLoginFlow())
     }
 }

@@ -7,7 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#DC281B</color>
+    <color name="yellow">#f0931f</color>
 
-    <color name="colorAccent">#84DCD5</color>
+    <color name="colorAccent">#40CABF</color>
     <color name="colorAction">@color/black</color>
+    <color name="colorTextPrimary">#303030</color>
+    <color name="colorTextSecondary">#686868</color>
+    <color name="colorBorderLine">#DFDFDF</color>
+    <color name="colorTextError">@color/red</color>
+    <color name="colorTextWarning">@color/yellow</color>
+    <color name="colorDisabled">#888584</color>
 </resources>

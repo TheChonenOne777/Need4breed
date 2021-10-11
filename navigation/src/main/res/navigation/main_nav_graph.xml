@@ -8,9 +8,18 @@
 
     <include app:graph="@navigation/dogs_flow" />
 
+    <include app:graph="@navigation/login_flow" />
+
     <action
         android:id="@+id/action_global_dogs_flow"
         app:destination="@id/dogs_flow"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popUpTo="@id/main_nav_graph"/>
+
+    <action
+        android:id="@+id/action_global_login_flow"
+        app:destination="@id/login_flow"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popUpTo="@id/main_nav_graph"/>
