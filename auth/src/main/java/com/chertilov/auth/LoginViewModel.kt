@@ -41,7 +41,7 @@ class LoginViewModel @Inject constructor(private val interactor: LoginInteractor
         _loginResult.value = Response.Loading
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                _loginResult.value = interactor.sendCode(code).first()
+                _loginResult.value = interactor.sendCode(phoneNumber, code).first()
             }
         }
     }

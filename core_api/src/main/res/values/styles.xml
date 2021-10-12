@@ -9,6 +9,10 @@
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
+    <style name="Text.Secondary">
+        <item name="android:textColor">@color/colorTextSecondary</item>
+    </style>
+
     <style name="Text.Accent">
         <item name="android:textColor">@color/colorAccent</item>
     </style>
@@ -21,6 +25,10 @@
         <item name="android:textSize">@dimen/text_size_big</item>
     </style>
 
+    <style name="Text.Primary.Huge">
+        <item name="android:textSize">@dimen/text_size_huge</item>
+    </style>
+
     <style name="Button">
         <item name="android:minHeight">@dimen/button_height_def</item>
         <item name="android:textSize">@dimen/text_size_big</item>
@@ -31,7 +39,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="Button.Blue">
+    <style name="Button.Accent">
         <item name="android:background">@drawable/btn_rnd</item>
         <item name="android:textColor">@android:color/white</item>
     </style>

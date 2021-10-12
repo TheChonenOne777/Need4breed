@@ -7,11 +7,13 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.chertilov.auth.databinding.FragmentCodeBinding
 import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.utils.hideKeyboard
 import com.chertilov.utils.showKeyboard
 import java.text.SimpleDateFormat
@@ -25,6 +27,9 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
 
     @Inject
     lateinit var eagerTrigger: EagerTrigger
+
+    @Inject
+    lateinit var dogsMediator: DogsMediator
 
     private val viewModel: LoginViewModel by viewModels { viewModelFactory }
 
@@ -63,7 +68,10 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
         binding.input.isEnabled = result !is Response.Loading
         binding.errorText.isVisible = result is Response.Failure
         binding.input.showError(result is Response.Failure)
-        if (result is Response.Failure) binding.errorText.text = result.message
+        when (result) {
+            is Response.Failure -> binding.errorText.text = result.message
+            is Response.Success -> dogsMediator.openDogsFlow(findNavController())
+        }
     }
 
     private fun handleLeftTime(leftTime: Int) {

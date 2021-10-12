@@ -22,11 +22,4 @@ class DogsRoomStorage @Inject constructor(
     override suspend fun saveDogs(dogs: List<Dog>) = withContext(ioDispatcher) {
         dogsDao.insert(dogs.map { it.toStorage() })
     }
-
-    companion object {
-        private var instance: DogsRoomStorage? = null
-
-        fun getInstance(dogsDao: DogsDao, ioDispatcher: CoroutineDispatcher) = instance
-            ?: DogsRoomStorage(dogsDao, ioDispatcher).also { instance = it }
-    }
 }

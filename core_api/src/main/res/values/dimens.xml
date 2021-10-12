@@ -6,8 +6,10 @@
 
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_def">16dp</dimen>
+    <dimen name="padding_big">32dp</dimen>
 
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_def">14sp</dimen>
     <dimen name="text_size_big">16sp</dimen>
+    <dimen name="text_size_huge">20sp</dimen>
 </resources>

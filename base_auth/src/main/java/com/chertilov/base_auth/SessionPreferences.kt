@@ -16,5 +16,7 @@ class SessionPreferences @Inject constructor(pref: SharedPreferences) {
         this.session = session
     }
 
+    fun getPhoneNumber() = session
+
     fun isLoggedIn() = session.isNotEmpty()
 }
