@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:labelFor="@+id/input"
-                android:text="@string/phone_number_fragment.top_text"
+                android:text="@string/phone_number_fragment_top_text"
                 android:textSize="13sp" />
 
             <LinearLayout

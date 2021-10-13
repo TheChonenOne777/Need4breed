@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.chertilov.base_auth.SessionPreferences
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.LoginMediator
+import com.chertilov.core_api.mediators.ProfileMediator
 import com.chertilov.navigation.R
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class StartFragment : Fragment() {
 
     @Inject
-    lateinit var dogsMediator: DogsMediator
+    lateinit var profileMediator: ProfileMediator
 
     @Inject
     lateinit var loginMediator: LoginMediator
@@ -41,7 +41,7 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (sessionPreferences.isLoggedIn()) dogsMediator.openDogsFlow(findNavController())
+        if (sessionPreferences.isLoggedIn()) profileMediator.openProfile(findNavController())
         else loginMediator.openLoginFlow(findNavController())
     }
 }

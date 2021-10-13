@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/code_fragment.top_text" />
+        android:text="@string/code_fragment_top_text" />
 
     <TextView
         android:id="@+id/warning"
@@ -25,7 +25,7 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/colorTextWarning"
         android:visibility="gone"
-        tools:text="@string/code_fragment.warning_text" />
+        tools:text="@string/code_fragment_warning_text" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
         android:clickable="true"
         android:focusable="true"
         android:padding="13dp"
-        android:text="@string/code_fragment.repeat_code_btn_text"
+        android:text="@string/code_fragment_repeat_code_btn_text"
         android:textAllCaps="true"
         android:visibility="gone" />
 

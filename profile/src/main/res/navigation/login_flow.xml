@@ -2,18 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/login_flow"
-    app:startDestination="@id/phoneNumberFragment">
+    app:startDestination="@id/profileFragment">
 
     <fragment
-        android:id="@+id/phoneNumberFragment"
-        android:name="com.chertilov.auth.PhoneNumberFragment">
-        <action
-            android:id="@+id/action_phoneNumberFragment_to_codeFragment"
-            app:destination="@id/codeFragment"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/codeFragment"
-        android:name="com.chertilov.auth.CodeFragment"/>
+        android:id="@+id/profileFragment"
+        android:name="com.chertilov.profile.ProfileFragment" />
 
 </navigation>

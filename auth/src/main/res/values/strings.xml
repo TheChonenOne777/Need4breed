@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="phone_number_fragment.top_text">Введите номер телефона</string>
-    <string name="code_fragment.top_text">Введите код из СМС, отправленной на номер +7…</string>
-    <string name="code_fragment.warning_text">Убедитесь, что номер телефона введен правильно</string>
+    <string name="phone_number_fragment_top_text">Введите номер телефона</string>
+    <string name="code_fragment_top_text">Введите код из СМС, отправленной на номер +7…</string>
+    <string name="code_fragment_warning_text">Убедитесь, что номер телефона введен правильно</string>
     <string name="code_time_left_text">Запросить код еще раз вы сможете через %1$s</string>
-    <string name="code_fragment.repeat_code_btn_text">Запросить код повторно</string>
+    <string name="code_fragment_repeat_code_btn_text">Запросить код повторно</string>
 </resources>

@@ -14,6 +14,7 @@ import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
+import com.chertilov.core_api.mediators.ProfileMediator
 import com.chertilov.utils.hideKeyboard
 import com.chertilov.utils.showKeyboard
 import java.text.SimpleDateFormat
@@ -29,7 +30,7 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
     lateinit var eagerTrigger: EagerTrigger
 
     @Inject
-    lateinit var dogsMediator: DogsMediator
+    lateinit var profileMediator: ProfileMediator
 
     private val viewModel: LoginViewModel by viewModels { viewModelFactory }
 
@@ -70,15 +71,15 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
         binding.input.showError(result is Response.Failure)
         when (result) {
             is Response.Failure -> binding.errorText.text = result.message
-            is Response.Success -> dogsMediator.openDogsFlow(findNavController())
+            is Response.Success -> profileMediator.openProfile(findNavController())
         }
     }
 
     private fun handleLeftTime(leftTime: Int) {
-            binding.timeLeft.isVisible = leftTime != 0
-            binding.timeLeft.text = getString(R.string.code_time_left_text, formatTime(leftTime))
-            binding.resend.isVisible = leftTime == 0
-            binding.warning.isVisible = leftTime == 0
+        binding.timeLeft.isVisible = leftTime != 0
+        binding.timeLeft.text = getString(R.string.code_time_left_text, formatTime(leftTime))
+        binding.resend.isVisible = leftTime == 0
+        binding.warning.isVisible = leftTime == 0
     }
 
     private fun formatTime(time: Int) =

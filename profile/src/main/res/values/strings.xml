@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="phone_number_fragment.top_text">Введите номер телефона</string>
-    <string name="code_fragment.top_text">Введите код из СМС, отправленной на номер +7…</string>
-    <string name="code_fragment.warning_text">Убедитесь, что номер телефона введен правильно</string>
-    <string name="code_time_left_text">Запросить код еще раз вы сможете через %1$s</string>
-    <string name="code_fragment.repeat_code_btn_text">Запросить код повторно</string>
+    <string name="editable_text">Редактируемые поля</string>
+    <string name="name_placeholder_text">Имя</string>
+    <string name="breed_placeholder_text">Порода</string>
+    <string name="description_placeholder_text">Краткое описание о питомце</string>
+    <string name="find_partner_btn_text">Найти партнера</string>
+    <string name="image_placeholder_text">Фото вашей собаки</string>
+    <string name="image_alert_title">Изменить фотографию</string>
+    <string name="image_alert_message">Введите url изображения</string>
+    <string name="name_alert_title">Изменить имя</string>
+    <string name="name_alert_message">Как вы зовете вашего песика</string>
+    <string name="breed_alert_title">Изменить породу</string>
+    <string name="breed_alert_message">Введите породу вашей собаки</string>
+    <string name="description_alert_title">Изменить описание</string>
+    <string name="description_alert_message">Придумайте пару предложений про вашу собаку</string>
 </resources>
