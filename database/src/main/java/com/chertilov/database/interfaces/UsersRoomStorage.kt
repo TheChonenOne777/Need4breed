@@ -23,6 +23,10 @@ class UsersRoomStorage @Inject constructor(
     override fun getUser(phoneNumber: String): Flow<User> = userDao.get(phoneNumber)
         .map { it.toEntity() }
 
+    override suspend fun addMatch(user: User) = withContext(ioDispatcher) {
+        userDao.updateMatch(user.toStorage())
+    }
+
     override suspend fun saveUser(user: User) = withContext(ioDispatcher) {
         userDao.insert(user.toStorage())
     }

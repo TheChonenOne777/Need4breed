@@ -11,5 +11,6 @@ data class StorageUser(
     val image: String,
     val nickname: String,
     val description: String,
-    val breed: String
+    val breed: String,
+    val matches: Set<String>
 )

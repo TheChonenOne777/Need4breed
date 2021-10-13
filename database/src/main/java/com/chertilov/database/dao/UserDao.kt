@@ -1,9 +1,6 @@
 package com.chertilov.database.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.chertilov.database.entities.StorageUser
 import kotlinx.coroutines.flow.Flow
 
@@ -19,4 +16,7 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: StorageUser)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun updateMatch(user: StorageUser)
 }

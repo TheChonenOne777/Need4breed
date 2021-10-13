@@ -8,5 +8,7 @@ interface MediatorProvider : MainMediator, DogsMediator, LoginMediator, ProfileM
 
     fun provideLoginMediator(): LoginMediator
 
-    fun provideProfileediator(): ProfileMediator
+    fun provideProfileMediator(): ProfileMediator
+
+    fun provideMatchingMediator(): MatchingMediator
 }

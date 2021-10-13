@@ -9,5 +9,6 @@ class Navigator @Inject constructor() {
         NavFlow.DogsFlow -> navController.navigate(MainNavGraphDirections.actionGlobalDogsFlow())
         NavFlow.LoginFlow -> navController.navigate(MainNavGraphDirections.actionGlobalLoginFlow())
         NavFlow.ProfileFlow -> navController.navigate(MainNavGraphDirections.actionGlobalProfileFlow())
+        NavFlow.MatchingFlow -> navController.navigate(MainNavGraphDirections.actionGlobalMatchingFlow())
     }
 }

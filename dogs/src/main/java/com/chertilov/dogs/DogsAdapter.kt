@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chertilov.core_api.dto.Dog
 
-class DogsAdapter(private val listener: DogClickListener) :
-    RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
+class DogsAdapter(private val listener: DogClickListener) : RecyclerView.Adapter<DogsAdapter.DogViewHolder>() {
 
     private var items = listOf<Dog>()
 

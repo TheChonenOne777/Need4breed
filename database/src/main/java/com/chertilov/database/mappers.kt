@@ -8,5 +8,5 @@ import com.chertilov.database.entities.StorageUser
 fun Dog.toStorage(): StorageDog = StorageDog(0, image)
 fun StorageDog.toEntity(): Dog = Dog(image)
 
-fun User.toStorage(): StorageUser = StorageUser(phoneNumber, image, nickname, description, breed)
-fun StorageUser.toEntity(): User = User(phoneNumber, image, nickname, description, breed)
+fun User.toStorage(): StorageUser = StorageUser(phoneNumber, image, nickname, description, breed, matches)
+fun StorageUser.toEntity(): User = User(phoneNumber, image, nickname, description, breed, matches)

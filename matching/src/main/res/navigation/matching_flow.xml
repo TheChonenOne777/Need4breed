@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/matching_flow"
+    app:startDestination="@id/matchingFragment">
+
+    <fragment
+        android:id="@+id/matchingFragment"
+        android:name="com.chertilov.matching.MatchingFragment">
+        <action
+            android:id="@+id/show_match_dialog"
+            app:destination="@id/matchDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/matchDialog"
+        android:name="com.chertilov.matching.MatchDialogFragment" />
+
+</navigation>

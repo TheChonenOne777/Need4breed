@@ -12,6 +12,8 @@
 
     <include app:graph="@navigation/profile_flow" />
 
+    <include app:graph="@navigation/matching_flow" />
+
     <action
         android:id="@+id/action_global_dogs_flow"
         app:destination="@id/dogs_flow"
@@ -29,6 +31,13 @@
     <action
         android:id="@+id/action_global_profile_flow"
         app:destination="@id/profile_flow"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popUpTo="@id/main_nav_graph"/>
+
+    <action
+        android:id="@+id/action_global_matching_flow"
+        app:destination="@id/matching_flow"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popUpTo="@id/main_nav_graph"/>

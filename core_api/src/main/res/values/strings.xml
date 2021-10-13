@@ -2,4 +2,5 @@
 <resources>
     <string name="action_save">Сохранить</string>
     <string name="action_cancel">Отмена</string>
+    <string name="action_close">Закрыть</string>
 </resources>

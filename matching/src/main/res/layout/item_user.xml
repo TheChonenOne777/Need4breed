@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="@dimen/padding_def"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/shadow_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Text.Primary.Huge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_def"
+            android:layout_marginBottom="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_big"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintEnd_toStartOf="@id/breed"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Golden Boi" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/Text.Primary.Big"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_def"
+            android:layout_marginEnd="@dimen/padding_def"
+            android:layout_marginBottom="@dimen/padding_def"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="The goodest boy of all good boys!" />
+
+        <TextView
+            android:id="@+id/breed"
+            style="@style/Text.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_def"
+            android:layout_marginBottom="@dimen/padding_small"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/name"
+            tools:text="Golden Retriever" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

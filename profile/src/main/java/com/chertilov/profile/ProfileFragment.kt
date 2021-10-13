@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide
 import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.LoginMediator
+import com.chertilov.core_api.mediators.MatchingMediator
 import com.chertilov.profile.databinding.FragmentProfileBinding
 import com.chertilov.profile.di.ProfileComponent
 import com.chertilov.utils.getColorCompat
@@ -29,7 +29,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     lateinit var eagerTrigger: EagerTrigger
 
     @Inject
-    lateinit var dogsMediator: DogsMediator
+    lateinit var matchingMediator: MatchingMediator
 
     @Inject
     lateinit var loginMediator: LoginMediator
@@ -53,7 +53,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             it.breed.setOnClickListener { alertManager.showBreedAlert() }
             it.description.setOnClickListener { alertManager.showDescriptionAlert() }
             it.mainImage.setOnClickListener { alertManager.showImageAlert() }
-            it.searchBtn.setOnClickListener { dogsMediator.openDogsFlow(findNavController()) }
+            it.searchBtn.setOnClickListener { matchingMediator.openMatchingFlow(findNavController()) }
             it.logout.setOnClickListener {
                 viewModel.logout()
                 loginMediator.openLoginFlow(findNavController())

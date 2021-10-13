@@ -9,5 +9,7 @@ interface UsersStorage {
 
     fun getUser(phoneNumber: String): Flow<User>
 
+    suspend fun addMatch(user: User)
+
     suspend fun saveUser(user: User)
 }
