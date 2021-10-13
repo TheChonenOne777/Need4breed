@@ -13,6 +13,7 @@ import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
+import com.chertilov.core_api.mediators.LoginMediator
 import com.chertilov.profile.databinding.FragmentProfileBinding
 import com.chertilov.profile.di.ProfileComponent
 import com.chertilov.utils.getColorCompat
@@ -29,6 +30,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     @Inject
     lateinit var dogsMediator: DogsMediator
+
+    @Inject
+    lateinit var loginMediator: LoginMediator
 
     private val viewModel: ProfileViewModel by viewModels { viewModelFactory }
 
@@ -50,6 +54,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             it.description.setOnClickListener { alertManager.showDescriptionAlert() }
             it.mainImage.setOnClickListener { alertManager.showImageAlert() }
             it.searchBtn.setOnClickListener { dogsMediator.openDogsFlow(findNavController()) }
+            it.logout.setOnClickListener {
+                viewModel.logout()
+                loginMediator.openLoginFlow(findNavController())
+            }
         }
         viewModel.user.observe(viewLifecycleOwner) { handleUser(it) }
         viewModel.image.observe(viewLifecycleOwner) { setMainImage(it) }
@@ -72,7 +80,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
 
-    private fun setMainImage(imageUrl: String){
+    private fun setMainImage(imageUrl: String) {
         Glide.with(requireContext())
             .load(imageUrl)
             .into(binding.mainImage)

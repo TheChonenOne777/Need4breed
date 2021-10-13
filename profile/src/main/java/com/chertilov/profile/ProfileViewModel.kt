@@ -41,4 +41,8 @@ class ProfileViewModel @Inject constructor(private val interactor: ProfileIntera
     fun onDescriptionChanged(description: String) {
         _description.value = description
     }
+
+    fun logout() {
+        interactor.logout()
+    }
 }

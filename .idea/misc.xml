@@ -32,6 +32,7 @@
         <entry key="navigation/src/main/res/layout/fragment_start.xml" value="0.175" />
         <entry key="profile/src/main/res/drawable/ic_dog.xml" value="0.2390625" />
         <entry key="profile/src/main/res/drawable/ic_edit.xml" value="0.2390625" />
+        <entry key="profile/src/main/res/drawable/ic_logout.xml" value="0.2390625" />
         <entry key="profile/src/main/res/drawable/ic_pet.xml" value="0.2390625" />
         <entry key="profile/src/main/res/layout/fragment_code.xml" value="0.22291666666666668" />
         <entry key="profile/src/main/res/layout/fragment_profile.xml" value="0.22291666666666668" />

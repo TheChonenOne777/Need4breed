@@ -33,6 +33,16 @@
             app:layout_constraintStart_toStartOf="@id/main_image"
             app:layout_constraintTop_toTopOf="@id/main_image" />
 
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="?selectableItemBackground"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logout" />
+
         <TextView
             android:id="@+id/editable"
             style="@style/Text.Secondary"
