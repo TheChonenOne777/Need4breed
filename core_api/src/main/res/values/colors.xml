@@ -18,4 +18,5 @@
     <color name="colorTextError">@color/red</color>
     <color name="colorTextWarning">@color/yellow</color>
     <color name="colorDisabled">#888584</color>
+    <color name="colorBg">#80B5B5B5</color>
 </resources>

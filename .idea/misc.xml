@@ -8,6 +8,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/drawable/ic_close.xml" value="0.253125" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23148148148148148" />
         <entry key="app/src/main/res/layout/activity_dogs.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.23148148148148148" />
@@ -28,10 +29,18 @@
         <entry key="main/src/main/res/layout/activity_dog_details.xml" value="0.19074074074074074" />
         <entry key="main/src/main/res/layout/activity_main.xml" value="0.19074074074074074" />
         <entry key="main/src/main/res/layout/fragment_main.xml" value="0.17777777777777778" />
+        <entry key="matching/src/main/res/drawable/circle_bg.xml" value="0.253125" />
+        <entry key="matching/src/main/res/drawable/ic_close.xml" value="0.253125" />
+        <entry key="matching/src/main/res/drawable/ic_dislike.xml" value="0.253125" />
+        <entry key="matching/src/main/res/drawable/ic_favorite.xml" value="0.253125" />
+        <entry key="matching/src/main/res/drawable/ic_switch.xml" value="0.2390625" />
         <entry key="matching/src/main/res/drawable/shadow_bg.xml" value="0.2630769230769231" />
         <entry key="matching/src/main/res/layout/dialog_match.xml" value="0.2194871794871795" />
         <entry key="matching/src/main/res/layout/fragment_matching.xml" value="0.24074074074074073" />
+        <entry key="matching/src/main/res/layout/fragment_matching_cards.xml" value="0.2194871794871795" />
         <entry key="matching/src/main/res/layout/item_user.xml" value="0.24074074074074073" />
+        <entry key="matching/src/main/res/menu/menu_matching_switch.xml" value="0.2194871794871795" />
+        <entry key="matching/src/main/res/xml/scene_swipe.xml" value="0.2194871794871795" />
         <entry key="navigation/src/main/res/layout/activity_main.xml" value="0.17516218721038" />
         <entry key="navigation/src/main/res/layout/fragment_start.xml" value="0.175" />
         <entry key="profile/src/main/res/drawable/ic_dog.xml" value="0.2390625" />

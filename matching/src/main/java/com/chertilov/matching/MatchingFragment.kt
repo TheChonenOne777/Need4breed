@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.mediators.MatchingMediator
 import com.chertilov.matching.databinding.FragmentMatchingBinding
 import com.chertilov.matching.di.EagerTrigger
 import com.chertilov.matching.di.MatchingComponent
@@ -24,9 +23,6 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
 
     @Inject
     lateinit var eagerTrigger: EagerTrigger
-
-    @Inject
-    lateinit var matchingMediator: MatchingMediator
 
     private val viewModel: MatchingViewModel by viewModels { viewModelFactory }
 
@@ -43,8 +39,18 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMatchingBinding.bind(view).also {
-            it.appbar.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
-            it.appbar.toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
+            with(it.appbar.toolbar) {
+                setNavigationOnClickListener { requireActivity().onBackPressed() }
+                setNavigationIcon(R.drawable.ic_arrow_back)
+                menu.clear()
+                inflateMenu(R.menu.menu_matching_switch)
+                setOnMenuItemClickListener {
+                    if (it.itemId == R.id.switch_matching) {
+                        findNavController().navigate(MatchingFragmentDirections.switchToMatchingCardsFragment())
+                    }
+                    it.itemId == R.id.switch_matching
+                }
+            }
             it.matchingRecycler.adapter = adapter
             it.refresh.setColorSchemeResources(R.color.colorAction)
             it.refresh.setOnRefreshListener { viewModel.onRefresh() }

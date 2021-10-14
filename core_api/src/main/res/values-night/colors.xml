@@ -3,4 +3,5 @@
     <color name="colorAccent">#2C4946</color>
     <color name="colorAction">@color/white</color>
     <color name="colorTextPrimary">#D8D8D8</color>
+    <color name="colorBg">#805E5E5E</color>
 </resources>

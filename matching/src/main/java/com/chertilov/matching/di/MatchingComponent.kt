@@ -4,6 +4,7 @@ import com.chertilov.core.CoreProvidersFactory
 import com.chertilov.core_api.mediators.ProvidersFacade
 import com.chertilov.core_api.viewmodel.ViewModelsProvider
 import com.chertilov.matching.MatchDialogFragment
+import com.chertilov.matching.MatchingCardsFragment
 import com.chertilov.matching.MatchingFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -24,5 +25,6 @@ interface MatchingComponent : ViewModelsProvider {
     }
 
     fun inject(matchingFragment: MatchingFragment)
+    fun inject(matchingCardsFragment: MatchingCardsFragment)
     fun inject(matchDialog: MatchDialogFragment)
 }
