@@ -5,6 +5,7 @@ import com.chertilov.core.CoreProvidersFactory
 import com.chertilov.core_api.mediators.ProvidersFacade
 import com.chertilov.core_api.viewmodel.ViewModelsProvider
 import com.chertilov.profile.ProfileFragment
+import com.chertilov.profile.matches.MatchesFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -24,4 +25,5 @@ interface ProfileComponent : ViewModelsProvider {
     }
 
     fun inject(profileFragment: ProfileFragment)
+    fun inject(matchesFragment: MatchesFragment)
 }

@@ -37,9 +37,12 @@
         <entry key="profile/src/main/res/drawable/ic_dog.xml" value="0.2390625" />
         <entry key="profile/src/main/res/drawable/ic_edit.xml" value="0.2390625" />
         <entry key="profile/src/main/res/drawable/ic_logout.xml" value="0.2390625" />
+        <entry key="profile/src/main/res/drawable/ic_next_right.xml" value="0.2630769230769231" />
         <entry key="profile/src/main/res/drawable/ic_pet.xml" value="0.2390625" />
         <entry key="profile/src/main/res/layout/fragment_code.xml" value="0.22291666666666668" />
+        <entry key="profile/src/main/res/layout/fragment_matches.xml" value="0.2324074074074074" />
         <entry key="profile/src/main/res/layout/fragment_profile.xml" value="0.22291666666666668" />
+        <entry key="profile/src/main/res/layout/item_match.xml" value="0.2194871794871795" />
         <entry key="profile/src/main/res/layout/layout_profile_alert.xml" value="0.22291666666666668" />
       </map>
     </option>

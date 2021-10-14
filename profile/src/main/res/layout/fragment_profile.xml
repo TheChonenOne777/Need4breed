@@ -155,6 +155,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/description_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="description,dog_image" />
+
+        <View
+            android:id="@+id/bottom_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/padding_def"
+            android:layout_marginTop="@dimen/padding_def"
+            android:layout_marginEnd="@dimen/padding_def"
+            android:background="@color/colorBorderLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_barrier" />
+
+        <TextView
+            android:id="@+id/matches"
+            style="@style/Text.Primary.Big"
+            android:layout_width="0dp"
+            android:padding="@dimen/padding_def"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_small"
+            android:gravity="center_vertical"
+            android:text="@string/matches_text"
+            app:drawableEndCompat="@drawable/ic_next_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_divider" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

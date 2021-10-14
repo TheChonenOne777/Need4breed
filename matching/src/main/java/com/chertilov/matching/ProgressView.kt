@@ -1,4 +1,4 @@
-package com.chertilov.need4breed
+package com.chertilov.matching
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -12,10 +12,9 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateInterpolator
-import com.chertilov.dogs.R
 import com.chertilov.utils.getColorCompat
 
-class LaunchProgressView(context: Context, attrs: AttributeSet) : View(context, attrs) {
+class ProgressView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     private val circleData = CircleData()
 
@@ -31,7 +30,7 @@ class LaunchProgressView(context: Context, attrs: AttributeSet) : View(context, 
     }
 
     private val paint = Paint().apply {
-        color = context.getColorCompat(R.color.white)
+        color = context.getColorCompat(R.color.colorAction)
         style = Paint.Style.STROKE
         strokeWidth = STROKE_WIDTH
         strokeJoin = Paint.Join.ROUND

@@ -5,6 +5,7 @@
     <string name="breed_placeholder_text">Порода</string>
     <string name="description_placeholder_text">Краткое описание о питомце</string>
     <string name="find_partner_btn_text">Найти партнера</string>
+    <string name="matches_text">Мои совпадения</string>
     <string name="image_placeholder_text">Фото вашей собаки</string>
     <string name="image_alert_title">Изменить фотографию</string>
     <string name="image_alert_message">Введите url изображения</string>
@@ -14,4 +15,5 @@
     <string name="breed_alert_message">Введите породу вашей собаки</string>
     <string name="description_alert_title">Изменить описание</string>
     <string name="description_alert_message">Придумайте пару предложений про вашу собаку</string>
+    <string name="call_alert_title">Позвонить %1$s?</string>
 </resources>

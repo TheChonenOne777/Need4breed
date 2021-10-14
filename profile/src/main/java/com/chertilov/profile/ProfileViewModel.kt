@@ -9,8 +9,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class ProfileViewModel @Inject constructor(private val interactor: ProfileInteractor) :
-    ViewModel() {
+class ProfileViewModel @Inject constructor(private val interactor: ProfileInteractor) : ViewModel() {
+
+    private var clicksToOpenEasterEgg = 3
 
     val user: LiveData<User> = interactor.getCurrentUser().flowOn(Dispatchers.IO).asLiveData()
 
@@ -25,6 +26,9 @@ class ProfileViewModel @Inject constructor(private val interactor: ProfileIntera
 
     private val _description = MutableLiveData<String>()
     val description: LiveData<String> = _description
+
+    private val _openEasterEgg = MutableLiveData<Int>()
+    val openEasterEgg: LiveData<Int> = _openEasterEgg
 
     fun onImageChanged(imageUrl: String) {
         _image.value = imageUrl
@@ -44,5 +48,9 @@ class ProfileViewModel @Inject constructor(private val interactor: ProfileIntera
 
     fun logout() {
         interactor.logout()
+    }
+
+    fun onDogImageClick() {
+        _openEasterEgg.value = clicksToOpenEasterEgg--
     }
 }

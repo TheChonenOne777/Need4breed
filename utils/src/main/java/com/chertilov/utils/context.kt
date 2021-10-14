@@ -3,6 +3,7 @@ package com.chertilov.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorRes
@@ -29,3 +30,12 @@ fun <T> unsafeLazy(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initi
 fun Context.getColorCompat(@ColorRes colorRes: Int) = ContextCompat.getColor(this, colorRes)
 
 val Context.inputMethodManager get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+fun Context.makeCall(phoneNumber: String) {
+    startActivity(
+        Intent(Intent.ACTION_DIAL)
+            .setData(Uri.parse(phoneNumber))
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+        null
+    )
+}

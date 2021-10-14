@@ -3,6 +3,7 @@ package com.chertilov.profile
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.LoginMediator
 import com.chertilov.core_api.mediators.MatchingMediator
 import com.chertilov.profile.databinding.FragmentProfileBinding
@@ -33,6 +35,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     @Inject
     lateinit var loginMediator: LoginMediator
+
+    @Inject
+    lateinit var dogsMediator: DogsMediator
 
     private val viewModel: ProfileViewModel by viewModels { viewModelFactory }
 
@@ -58,12 +63,15 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 viewModel.logout()
                 loginMediator.openLoginFlow(findNavController())
             }
+            it.matches.setOnClickListener { findNavController().navigate(ProfileFragmentDirections.openMatchesFragment()) }
+            it.dogImage.setOnClickListener { viewModel.onDogImageClick() }
         }
         viewModel.user.observe(viewLifecycleOwner) { handleUser(it) }
         viewModel.image.observe(viewLifecycleOwner) { setMainImage(it) }
         viewModel.name.observe(viewLifecycleOwner) { setProfileField(binding.name, it) }
         viewModel.breed.observe(viewLifecycleOwner) { setProfileField(binding.breed, it) }
         viewModel.description.observe(viewLifecycleOwner) { setProfileField(binding.description, it) }
+        viewModel.openEasterEgg.observe(viewLifecycleOwner) { openEasterEgg(it) }
     }
 
     private fun handleUser(user: User) {
@@ -85,5 +93,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             .load(imageUrl)
             .into(binding.mainImage)
         binding.imagePlaceholder.isVisible = imageUrl.isEmpty()
+    }
+
+    private fun openEasterEgg(clicks: Int) {
+        if (clicks < 0) dogsMediator.openDogsFlow(findNavController())
+        else Toast.makeText(requireContext(), clicks.toString(), Toast.LENGTH_SHORT).show()
     }
 }

@@ -2,10 +2,12 @@ package com.chertilov.matching
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.MatchingMediator
@@ -44,9 +46,19 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
             it.appbar.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
             it.appbar.toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
             it.matchingRecycler.adapter = adapter
+            it.refresh.setColorSchemeResources(R.color.colorAction)
+            it.refresh.setOnRefreshListener { viewModel.onRefresh() }
         }
-        viewModel.users.observe(viewLifecycleOwner) { adapter.submitList(it) }
+        viewModel.users.observe(viewLifecycleOwner) { handleUsers(it) }
         viewModel.matchedUser.observe(viewLifecycleOwner) { handleMatch() }
+    }
+
+    private fun handleUsers(result: Response<List<User>>) {
+        binding.progress.isVisible = result is Response.Loading
+        if (result is Response.Success) {
+            adapter.submitList(result.value)
+            binding.refresh.isRefreshing = false
+        }
     }
 
     private fun handleMatch() {

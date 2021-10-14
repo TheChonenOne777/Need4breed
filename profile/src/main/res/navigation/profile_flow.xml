@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/profile_flow"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.chertilov.profile.ProfileFragment">
+        <action
+            android:id="@+id/open_matches_fragment"
+            app:destination="@id/matchesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.chertilov.profile.matches.MatchesFragment" />
+
+</navigation>

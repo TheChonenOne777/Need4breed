@@ -1,6 +1,7 @@
 package com.chertilov.matching
 
 import com.chertilov.base_auth.SessionPreferences
+import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.database.UsersStorage
 import com.chertilov.core_api.dto.User
 import kotlinx.coroutines.flow.Flow
@@ -12,8 +13,9 @@ class MatchingInteractor @Inject constructor(
     private val sessionPreferences: SessionPreferences
 ) {
 
-    fun getAllUsers() = usersStorage.getUsers()
+    fun getAllUsers(): Flow<Response<List<User>>> = usersStorage.getUsers()
         .map { it.filter { it.phoneNumber != sessionPreferences.getPhoneNumber() } }
+        .map { Response.Success(it) }
 
     suspend fun addToMatches(matchedUser: User): Flow<User?> = usersStorage.getUser(sessionPreferences.getPhoneNumber())
         .map {

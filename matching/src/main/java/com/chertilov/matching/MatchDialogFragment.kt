@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.matching.databinding.DialogMatchBinding
 import com.chertilov.matching.di.MatchingComponent
+import com.chertilov.utils.makeCall
 import javax.inject.Inject
 
 class MatchDialogFragment : DialogFragment(R.layout.dialog_match) {
@@ -39,14 +40,7 @@ class MatchDialogFragment : DialogFragment(R.layout.dialog_match) {
                 .into(binding.image)
             binding.name.text = it.nickname
             binding.phone.text = it.phoneNumber
-            binding.call.setOnClickListener { _ ->
-                startActivity(
-                    Intent(Intent.ACTION_DIAL)
-                        .setData(Uri.parse(it.phoneNumber))
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-                    null
-                )
-            }
+            binding.call.setOnClickListener { _ -> requireContext().makeCall(it.phoneNumber) }
         }
     }
 
