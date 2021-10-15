@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccent">#2C4946</color>
+    <color name="gold">#FF9800</color>
     <color name="colorAction">@color/white</color>
     <color name="colorTextPrimary">#D8D8D8</color>
     <color name="colorTextSecondary">#9F9F9F</color>

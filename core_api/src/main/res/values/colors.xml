@@ -9,8 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#DC281B</color>
     <color name="yellow">#f0931f</color>
+    <color name="gold">#FFC107</color>
+    <color name="gold_other">#FFEB3B</color>
 
-    <color name="colorAccent">#40CABF</color>
+    <color name="colorAccent">@color/gold</color>
     <color name="colorAction">@color/black</color>
     <color name="colorTextPrimary">#303030</color>
     <color name="colorTextSecondary">#B1B2B3</color>

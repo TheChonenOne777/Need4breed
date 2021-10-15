@@ -21,70 +21,6 @@
         app:layoutDescription="@xml/scene_swipe">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/top_card"
-            android:layout_width="0dp"
-            android:layout_height="0dp">
-
-            <ImageView
-                android:id="@+id/top_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-
-            <View
-                android:id="@+id/top_shadow"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@drawable/shadow_bg"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="@id/top_name" />
-
-            <TextView
-                android:id="@+id/top_name"
-                style="@style/Text.Primary.Huge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_def"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:paddingTop="@dimen/padding_big"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/top_description"
-                app:layout_constraintEnd_toStartOf="@id/top_breed"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Golden Boi" />
-
-            <TextView
-                android:id="@+id/top_description"
-                style="@style/Text.Primary.Big"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_def"
-                android:layout_marginEnd="@dimen/padding_def"
-                android:layout_marginBottom="@dimen/padding_def"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="The goodest boy of all good boys!" />
-
-            <TextView
-                android:id="@+id/top_breed"
-                style="@style/Text.Primary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/padding_def"
-                android:layout_marginBottom="@dimen/padding_small"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/top_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/top_name"
-                tools:text="Golden Retriever" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottom_card"
             android:layout_width="0dp"
             android:layout_height="0dp">
@@ -144,6 +80,70 @@
                 app:layout_constraintBottom_toTopOf="@id/bottom_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/bottom_name"
+                tools:text="Golden Retriever" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:id="@+id/top_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:id="@+id/top_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/shadow_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@id/top_name" />
+
+            <TextView
+                android:id="@+id/top_name"
+                style="@style/Text.Primary.Huge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_def"
+                android:layout_marginBottom="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_big"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/top_description"
+                app:layout_constraintEnd_toStartOf="@id/top_breed"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Golden Boi" />
+
+            <TextView
+                android:id="@+id/top_description"
+                style="@style/Text.Primary.Big"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_def"
+                android:layout_marginEnd="@dimen/padding_def"
+                android:layout_marginBottom="@dimen/padding_def"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="The goodest boy of all good boys!" />
+
+            <TextView
+                android:id="@+id/top_breed"
+                style="@style/Text.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/padding_def"
+                android:layout_marginBottom="@dimen/padding_small"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/top_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/top_name"
                 tools:text="Golden Retriever" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
