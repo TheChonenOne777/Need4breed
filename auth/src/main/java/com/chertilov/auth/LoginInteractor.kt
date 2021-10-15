@@ -17,7 +17,7 @@ class LoginInteractor @Inject constructor(
 
     suspend fun sendPhoneNumber(phoneNumber: String) = flow {
         delay(500)
-        emit(Response.Success(""))
+        emit(Response.Success(phoneNumber))
     }.flowOn(Dispatchers.IO)
 
     suspend fun sendCode(phoneNumber: String, code: String) = flow {

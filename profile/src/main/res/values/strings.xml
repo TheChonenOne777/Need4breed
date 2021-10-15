@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="editable_text">Редактируемые поля</string>
     <string name="name_placeholder_text">Имя</string>
     <string name="breed_placeholder_text">Порода</string>
     <string name="description_placeholder_text">Краткое описание о питомце</string>

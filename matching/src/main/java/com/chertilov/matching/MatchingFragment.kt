@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.matching.databinding.FragmentMatchingBinding
 import com.chertilov.matching.di.MatchingComponent
 import com.chertilov.utils.unsafeLazy
@@ -20,9 +19,6 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var eagerTrigger: EagerTrigger
 
     private val viewModel: MatchingViewModel by viewModels { viewModelFactory }
 
@@ -64,6 +60,7 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
         if (result is Response.Success) {
             adapter.submitList(result.value)
             binding.refresh.isRefreshing = false
+            binding.stub.isVisible = result.value.isEmpty()
         }
     }
 

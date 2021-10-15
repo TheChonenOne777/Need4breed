@@ -1,11 +1,10 @@
-package com.chertilov.core_impl
+package com.chertilov.core_api.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 
-
-class ViewModelFactoryProvider @Inject constructor(
+class ViewModelFactory @Inject constructor(
     private val creators: @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>
 ) : ViewModelProvider.Factory {
 

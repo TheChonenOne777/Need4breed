@@ -1,7 +1,7 @@
 package com.chertilov.matching.di
 
-import androidx.lifecycle.ViewModel
-import com.chertilov.core_api.viewmodel.EagerTrigger
+import androidx.lifecycle.ViewModelProvider
+import com.chertilov.core_api.base.ViewModelFactory
 import com.chertilov.matching.MatchingInteractor
 import com.chertilov.matching.MatchingViewModel
 import dagger.Module
@@ -18,18 +18,12 @@ abstract class MatchingModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun provideMatchingViewModel(
-            map: @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>,
-            interactor: MatchingInteractor
-        ): ViewModel = MatchingViewModel(interactor).also {
-            map[MatchingViewModel::class.java] = it
+        fun bindsFactory(interactor: MatchingInteractor): ViewModelProvider.Factory {
+            return ViewModelFactory(
+                mutableMapOf(
+                    MatchingViewModel::class.java to MatchingViewModel(interactor)
+                )
+            )
         }
-
-        @Provides
-        @Singleton
-        @JvmStatic
-        fun provideDummy(viewModel: ViewModel) = EagerTrigger()
     }
 }
-
-//class EagerTrigger

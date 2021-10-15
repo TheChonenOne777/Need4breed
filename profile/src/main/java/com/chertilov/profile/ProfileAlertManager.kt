@@ -27,7 +27,7 @@ class ProfileAlertManager(private val fragment: Fragment, private val viewModel:
                 }
                 d.dismiss()
             }
-            .setNegativeButton(R.string.action_save) { d, _ -> d.dismiss() }
+            .setNegativeButton(R.string.action_cancel) { d, _ -> d.dismiss() }
             .create()
             .show()
     }

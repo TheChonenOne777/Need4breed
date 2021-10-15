@@ -12,7 +12,7 @@ interface UserDao {
     fun getAll(): Flow<List<StorageUser>>
 
     @Query("SELECT * from users WHERE phoneNumber=:phoneNumber")
-    fun get(phoneNumber: String): Flow<StorageUser>
+    fun get(phoneNumber: String): Flow<StorageUser?>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: StorageUser)

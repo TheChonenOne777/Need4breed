@@ -15,7 +15,6 @@ import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.LoginMediator
 import com.chertilov.core_api.mediators.MatchingMediator
-import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.profile.databinding.FragmentProfileBinding
 import com.chertilov.profile.di.ProfileComponent
 import com.chertilov.utils.getColorCompat
@@ -26,9 +25,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var eagerTrigger: EagerTrigger
 
     @Inject
     lateinit var matchingMediator: MatchingMediator
@@ -66,7 +62,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             it.matches.setOnClickListener { findNavController().navigate(ProfileFragmentDirections.openMatchesFragment()) }
             it.dogImage.setOnClickListener { viewModel.onDogImageClick() }
         }
-        viewModel.user.observe(viewLifecycleOwner) { handleUser(it) }
+        viewModel.user.observe(viewLifecycleOwner) { it?.let { handleUser(it) } }
         viewModel.image.observe(viewLifecycleOwner) { setMainImage(it) }
         viewModel.name.observe(viewLifecycleOwner) { setProfileField(binding.name, it) }
         viewModel.breed.observe(viewLifecycleOwner) { setProfileField(binding.breed, it) }

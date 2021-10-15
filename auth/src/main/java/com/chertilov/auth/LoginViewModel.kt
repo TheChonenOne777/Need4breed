@@ -44,20 +44,23 @@ class LoginViewModel @Inject constructor(private val interactor: LoginInteractor
 
     fun onResendCode() {
         startTimer(RESEND_SMS_SECONDS)
-        onPhoneNumberEnter()
+    }
+
+    fun onCodeFragmentOpen() {
+        startTimer(RESEND_SMS_SECONDS)
     }
 
     private fun startTimer(initialSeconds: Int) {
         viewModelScope.launch {
             (0..initialSeconds)
                 .asFlow()
+                .onEach { delay(if (it == 0) 0 else 1000) }
                 .map { initialSeconds - it }
-                .onEach { delay(1000) }
                 .collect { _timeLeft.value = it }
         }
     }
 
     companion object {
-        private const val RESEND_SMS_SECONDS = 120
+        private const val RESEND_SMS_SECONDS = 30
     }
 }

@@ -1,9 +1,11 @@
 package com.chertilov.auth.di
 
-import androidx.lifecycle.ViewModel
-import com.chertilov.core_api.viewmodel.EagerTrigger
+import androidx.lifecycle.ViewModelProvider
+import com.chertilov.core_api.base.ViewModelFactory
 import com.chertilov.profile.ProfileInteractor
 import com.chertilov.profile.ProfileViewModel
+import com.chertilov.profile.matches.MatchesInteractor
+import com.chertilov.profile.matches.MatchesViewModel
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -18,18 +20,13 @@ abstract class ProfileModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun provideProfileViewModel(
-            map: @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>,
-            interactor: ProfileInteractor
-        ): ViewModel = ProfileViewModel(interactor).also {
-            map[ProfileViewModel::class.java] = it
+        fun bindsFactory(profileInteractor: ProfileInteractor, matchesInteractor: MatchesInteractor): ViewModelProvider.Factory {
+            return ViewModelFactory(
+                mutableMapOf(
+                    ProfileViewModel::class.java to ProfileViewModel(profileInteractor),
+                    MatchesViewModel::class.java to MatchesViewModel(matchesInteractor)
+                )
+            )
         }
-
-        @Provides
-        @Singleton
-        @JvmStatic
-        fun provideDummy(viewModel: ViewModel) = EagerTrigger()
     }
 }
-
-//class EagerTrigger

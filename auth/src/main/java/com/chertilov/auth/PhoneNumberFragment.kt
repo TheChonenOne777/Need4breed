@@ -13,7 +13,6 @@ import com.chertilov.auth.databinding.FragmentPhoneNumberBinding
 import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.utils.hideKeyboard
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import javax.inject.Inject
@@ -22,9 +21,6 @@ class PhoneNumberFragment : Fragment(R.layout.fragment_phone_number) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var eagerTrigger: EagerTrigger
 
     private val viewModel: LoginViewModel by viewModels { viewModelFactory }
 

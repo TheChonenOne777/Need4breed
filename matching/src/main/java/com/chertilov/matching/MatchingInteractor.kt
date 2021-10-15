@@ -21,7 +21,7 @@ class MatchingInteractor @Inject constructor(
         .map {
             val matches = it.matches.toMutableSet()
             if(matches.add(matchedUser.phoneNumber)) {
-                usersStorage.addMatch(it.copy(matches = matches))
+                usersStorage.replaceUserData(it.copy(matches = matches))
                 matchedUser
             } else {
                 null

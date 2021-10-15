@@ -1,7 +1,7 @@
 package com.chertilov.dogs.di
 
-import androidx.lifecycle.ViewModel
-import com.chertilov.core_api.viewmodel.EagerTrigger
+import androidx.lifecycle.ViewModelProvider
+import com.chertilov.core_api.base.ViewModelFactory
 import com.chertilov.dogs.DogsInteractor
 import com.chertilov.dogs.DogsRepository
 import com.chertilov.dogs.DogsRepositoryImpl
@@ -24,18 +24,12 @@ abstract class DogsModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun provideDogsViewModel(
-            map: @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>,
-            interactor: DogsInteractor
-        ): ViewModel = DogsViewModel(interactor).also {
-            map[DogsViewModel::class.java] = it
+        fun bindsFactory(interactor: DogsInteractor): ViewModelProvider.Factory {
+            return ViewModelFactory(
+                mutableMapOf(
+                    DogsViewModel::class.java to DogsViewModel(interactor)
+                )
+            )
         }
-
-        @Provides
-        @Singleton
-        @JvmStatic
-        fun provideDummy(viewModel: ViewModel) = EagerTrigger()
     }
 }
-
-//class EagerTrigger

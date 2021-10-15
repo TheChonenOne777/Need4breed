@@ -14,7 +14,6 @@ import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.ProfileMediator
-import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.utils.hideKeyboard
 import com.chertilov.utils.showKeyboard
 import java.text.SimpleDateFormat
@@ -25,9 +24,6 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var eagerTrigger: EagerTrigger
 
     @Inject
     lateinit var profileMediator: ProfileMediator
@@ -66,6 +62,7 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
                 viewModel.onResendCode()
             }
         }
+        viewModel.onCodeFragmentOpen()
     }
 
     private fun handleResult(result: Response<String>) {

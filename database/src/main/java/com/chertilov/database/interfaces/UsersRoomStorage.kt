@@ -7,6 +7,7 @@ import com.chertilov.database.toEntity
 import com.chertilov.database.toStorage
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -21,9 +22,10 @@ class UsersRoomStorage @Inject constructor(
         .map { it.map { it.toEntity() } }
 
     override fun getUser(phoneNumber: String): Flow<User> = userDao.get(phoneNumber)
-        .map { it.toEntity() }
+        .filter { it != null }
+        .map { it!!.toEntity() }
 
-    override suspend fun addMatch(user: User) = withContext(ioDispatcher) {
+    override suspend fun replaceUserData(user: User) = withContext(ioDispatcher) {
         userDao.updateMatch(user.toStorage())
     }
 

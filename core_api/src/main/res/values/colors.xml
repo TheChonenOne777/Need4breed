@@ -13,8 +13,8 @@
     <color name="colorAccent">#40CABF</color>
     <color name="colorAction">@color/black</color>
     <color name="colorTextPrimary">#303030</color>
-    <color name="colorTextSecondary">#686868</color>
-    <color name="colorBorderLine">#DFDFDF</color>
+    <color name="colorTextSecondary">#B1B2B3</color>
+    <color name="colorBorderLine">#E9E9E9</color>
     <color name="colorTextError">@color/red</color>
     <color name="colorTextWarning">@color/yellow</color>
     <color name="colorDisabled">#888584</color>

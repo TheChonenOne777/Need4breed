@@ -1,12 +1,10 @@
 package com.chertilov.profile
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.chertilov.core_api.dto.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ProfileViewModel @Inject constructor(private val interactor: ProfileInteractor) : ViewModel() {
@@ -32,18 +30,22 @@ class ProfileViewModel @Inject constructor(private val interactor: ProfileIntera
 
     fun onImageChanged(imageUrl: String) {
         _image.value = imageUrl
+        viewModelScope.launch { interactor.saveImage(imageUrl) }
     }
 
     fun onNameChanged(name: String) {
         _name.value = name
+        viewModelScope.launch { interactor.saveName(name) }
     }
 
     fun onBreedChanged(breed: String) {
         _breed.value = breed
+        viewModelScope.launch { interactor.saveBreed(breed) }
     }
 
     fun onDescriptionChanged(description: String) {
         _description.value = description
+        viewModelScope.launch { interactor.saveDescription(description) }
     }
 
     fun logout() {

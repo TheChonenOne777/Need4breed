@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.profile.R
 import com.chertilov.profile.databinding.FragmentMatchesBinding
 import com.chertilov.profile.di.ProfileComponent
@@ -20,9 +19,6 @@ class MatchesFragment : Fragment(R.layout.fragment_matches) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
-    lateinit var eagerTrigger: EagerTrigger
 
     private val viewModel: MatchesViewModel by viewModels { viewModelFactory }
 

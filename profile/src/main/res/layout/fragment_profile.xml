@@ -38,24 +38,10 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:background="?selectableItemBackground"
-            android:padding="12dp"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_logout" />
-
-        <TextView
-            android:id="@+id/editable"
-            style="@style/Text.Secondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_def"
-            android:drawablePadding="4dp"
-            android:gravity="center_vertical"
-            android:text="@string/editable_text"
-            app:drawableStartCompat="@drawable/ic_edit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_image" />
 
         <TextView
             android:id="@+id/phone_number"
@@ -77,13 +63,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_def"
             android:layout_marginTop="@dimen/padding_def"
+            android:drawablePadding="4dp"
             android:text="@string/name_placeholder_text"
             android:textColor="@color/colorTextSecondary"
             android:textStyle="bold"
+            app:drawableEndCompat="@drawable/ic_edit"
             app:layout_constraintEnd_toStartOf="@id/phone_number"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editable"
+            app:layout_constraintTop_toBottomOf="@id/main_image"
             tools:text="Golden Boi" />
 
         <ImageView
@@ -118,8 +106,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padding_def"
             android:layout_marginTop="@dimen/padding_small"
+            android:drawablePadding="4dp"
             android:text="@string/breed_placeholder_text"
             android:textColor="@color/colorTextSecondary"
+            app:drawableEndCompat="@drawable/ic_edit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="Golden Retriever" />
@@ -178,10 +168,10 @@
             android:id="@+id/matches"
             style="@style/Text.Primary.Big"
             android:layout_width="0dp"
-            android:padding="@dimen/padding_def"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/padding_small"
             android:gravity="center_vertical"
+            android:padding="@dimen/padding_def"
             android:text="@string/matches_text"
             app:drawableEndCompat="@drawable/ic_next_right"
             app:layout_constraintEnd_toEndOf="parent"

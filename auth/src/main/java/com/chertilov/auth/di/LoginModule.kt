@@ -1,9 +1,9 @@
 package com.chertilov.auth.di
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.chertilov.auth.LoginInteractor
 import com.chertilov.auth.LoginViewModel
-import com.chertilov.core_api.viewmodel.EagerTrigger
+import com.chertilov.core_api.base.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -18,18 +18,12 @@ abstract class LoginModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun providePhoneNumberViewModel(
-            map: @JvmSuppressWildcards MutableMap<Class<out ViewModel>, ViewModel>,
-            interactor: LoginInteractor
-        ): ViewModel = LoginViewModel(interactor).also {
-            map[LoginViewModel::class.java] = it
+        fun bindsFactory(interactor: LoginInteractor): ViewModelProvider.Factory {
+            return ViewModelFactory(
+                mutableMapOf(
+                    LoginViewModel::class.java to LoginViewModel(interactor)
+                )
+            )
         }
-
-        @Provides
-        @Singleton
-        @JvmStatic
-        fun provideDummy(viewModel: ViewModel) = EagerTrigger()
     }
 }
-
-//class LoginEagerTrigger
