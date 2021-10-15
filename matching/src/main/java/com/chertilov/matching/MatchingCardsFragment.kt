@@ -28,6 +28,7 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
         super.onCreate(savedInstanceState)
         MatchingComponent.create((requireActivity().application as AppWithFacade).getFacade())
             .inject(this)
+        viewModel.onMatchCardsFragmentOpened()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,6 +72,6 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
     }
 
     private fun handleMatch() {
-        findNavController().navigate(MatchingCardsFragmentDirections.showMatchDialog())
+        findNavController().navigate(MatchingCardsFragmentDirections.showMatchDialogFromCards())
     }
 }

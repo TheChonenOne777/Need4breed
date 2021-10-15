@@ -53,6 +53,8 @@
         <entry key="profile/src/main/res/layout/fragment_profile.xml" value="0.22291666666666668" />
         <entry key="profile/src/main/res/layout/item_match.xml" value="0.2194871794871795" />
         <entry key="profile/src/main/res/layout/layout_profile_alert.xml" value="0.22291666666666668" />
+        <entry key="splash/src/main/res/drawable/bg_splash.xml" value="0.24923076923076923" />
+        <entry key="splash/src/main/res/drawable/ic_splash.xml" value="0.24923076923076923" />
       </map>
     </option>
   </component>

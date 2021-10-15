@@ -28,12 +28,21 @@ class MatchingViewModel @Inject constructor(private val interactor: MatchingInte
         }
     }
 
-    init {
+    fun onMatchFragmentOpened() {
         _users.value = Response.Loading
         viewModelScope.launch {
             delay(2000)
             getUsers()
         }
+    }
+
+    fun onMatchCardsFragmentOpened() {
+        _users.value = Response.Loading
+        viewModelScope.launch { getUsers() }
+    }
+
+    fun onMatchDialogOpened(){
+        _matchedUser.value = interactor.getRecentlyMatchedUser()
     }
 
     fun onMatchClicked(user: User) {

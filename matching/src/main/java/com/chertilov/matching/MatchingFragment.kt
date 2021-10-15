@@ -31,6 +31,7 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
         super.onCreate(savedInstanceState)
         MatchingComponent.create((requireActivity().application as AppWithFacade).getFacade())
             .inject(this)
+        viewModel.onMatchFragmentOpened()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

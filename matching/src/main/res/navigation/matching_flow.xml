@@ -25,7 +25,7 @@
         android:id="@+id/matchingCardsFragment"
         android:name="com.chertilov.matching.MatchingCardsFragment">
         <action
-            android:id="@+id/show_match_dialog"
+            android:id="@+id/show_match_dialog_from_cards"
             app:destination="@id/matchDialog" />
         <action
             android:id="@+id/switch_to_matching_fragment"

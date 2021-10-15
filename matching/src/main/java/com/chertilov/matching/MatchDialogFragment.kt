@@ -1,7 +1,5 @@
 package com.chertilov.matching
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
@@ -27,6 +25,7 @@ class MatchDialogFragment : DialogFragment(R.layout.dialog_match) {
         super.onCreate(savedInstanceState)
         MatchingComponent.create((requireActivity().application as AppWithFacade).getFacade())
             .inject(this)
+        viewModel.onMatchDialogOpened()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
