@@ -15,4 +15,6 @@
     <string name="description_alert_title">Изменить описание</string>
     <string name="description_alert_message">Придумайте пару предложений про вашу собаку</string>
     <string name="call_alert_title">Позвонить %1$s?</string>
+    <string name="matches_fragment_stub">Пока никто не хочет с вами общаться</string>
+    <string name="matches_fragment_title">Ваши любимчики</string>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ToolbarView">
+        <attr name="has_back_btn" format="boolean" />
+        <attr name="menu_icon" format="integer" />
+    </declare-styleable>
+</resources>

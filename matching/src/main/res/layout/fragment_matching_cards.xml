@@ -7,9 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
+    <com.chertilov.core_api.base.ToolbarView
         android:id="@+id/appbar"
-        layout="@layout/layout_toolbar" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu_icon="@drawable/ic_switch"
+        app:has_back_btn="true" />
 
     <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/motion_layout"

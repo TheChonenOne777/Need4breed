@@ -7,14 +7,10 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/Text.Primary.Huge"
+    <com.chertilov.core_api.base.ToolbarView
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_def"
-        android:layout_marginTop="@dimen/padding_big"
-        android:layout_marginBottom="@dimen/padding_def"
-        android:text="@string/phone_number_fragment_title" />
+        android:layout_height="wrap_content" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

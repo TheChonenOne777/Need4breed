@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.chertilov.core_api.base.ToolbarView
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.matching.databinding.FragmentMatchingCardsBinding
 import com.chertilov.matching.di.MatchingComponent
@@ -32,16 +33,9 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMatchingCardsBinding.bind(view).also {
-            with(it.appbar.toolbar) {
-                setNavigationOnClickListener { requireActivity().onBackPressed() }
-                setNavigationIcon(R.drawable.ic_arrow_back)
-                menu.clear()
-                inflateMenu(R.menu.menu_matching_switch)
-                setOnMenuItemClickListener {
-                    if (it.itemId == R.id.switch_matching) {
-                        findNavController().navigate(MatchingCardsFragmentDirections.switchToMatchingFragment())
-                    }
-                    it.itemId == R.id.switch_matching
+            with(it.appbar) {
+                menuListener = ToolbarView.OnMenuClickListener {
+                    findNavController().navigate(MatchingFragmentDirections.switchToMatchingCardsFragment())
                 }
             }
             it.motionLayout.setTransitionListener(object : TransitionAdapter() {

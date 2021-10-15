@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.chertilov.core_api.base.ToolbarView
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.dogs.di.DogsComponent
 import com.chertilov.utils.bind
@@ -16,7 +16,7 @@ import com.chertilov.utils.bind
 class DogDetailsFragment : Fragment() {
 
     private val dogImg by bind<ImageView>(R.id.img_dog)
-    private val toolbar by bind<Toolbar>(R.id.toolbar)
+    private val toolbar by bind<ToolbarView>(R.id.appbar)
 
     private val dogImageArg: DogDetailsFragmentArgs by navArgs()
 
@@ -36,15 +36,9 @@ class DogDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
         dogImageArg.image.let {
-            toolbar.title = it.substringAfter("breeds/", "").substringBefore("/")
+            toolbar.setTitle(it.substringAfter("breeds/", "").substringBefore("/"))
             Glide.with(this).load(it).into(dogImg)
         }
-    }
-
-    companion object {
-        const val DOG_IMG_EXTRA = "DOG_IMG_EXTRA"
     }
 }

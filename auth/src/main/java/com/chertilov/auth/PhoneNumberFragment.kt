@@ -48,6 +48,7 @@ class PhoneNumberFragment : Fragment(R.layout.fragment_phone_number) {
         binding = FragmentPhoneNumberBinding.bind(view)
         viewModel.loginResult.observe(viewLifecycleOwner) { handleResult(it) }
         binding.apply.setOnClickListener { applyPhoneNumber() }
+        binding.appbar.setTitle(R.string.phone_number_fragment_title)
         binding.input.apply {
             setText(viewModel.phoneNumber)
             addTextChangedListener(MaskedTextChangedListener("(9[00])[000]-[00]-[00]", this, textListener))

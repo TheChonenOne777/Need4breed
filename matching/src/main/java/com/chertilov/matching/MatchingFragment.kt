@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.chertilov.core_api.base.Response
+import com.chertilov.core_api.base.ToolbarView
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.matching.databinding.FragmentMatchingBinding
@@ -35,16 +36,9 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMatchingBinding.bind(view).also {
-            with(it.appbar.toolbar) {
-                setNavigationOnClickListener { requireActivity().onBackPressed() }
-                setNavigationIcon(R.drawable.ic_arrow_back)
-                menu.clear()
-                inflateMenu(R.menu.menu_matching_switch)
-                setOnMenuItemClickListener {
-                    if (it.itemId == R.id.switch_matching) {
-                        findNavController().navigate(MatchingFragmentDirections.switchToMatchingCardsFragment())
-                    }
-                    it.itemId == R.id.switch_matching
+            with(it.appbar) {
+                menuListener = ToolbarView.OnMenuClickListener {
+                    findNavController().navigate(MatchingFragmentDirections.switchToMatchingCardsFragment())
                 }
             }
             it.matchingRecycler.adapter = adapter
