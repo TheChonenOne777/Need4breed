@@ -1,6 +1,7 @@
 package com.chertilov.dogs.di
 
 import androidx.lifecycle.ViewModel
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.dogs.DogsInteractor
 import com.chertilov.dogs.DogsRepository
 import com.chertilov.dogs.DogsRepositoryImpl
@@ -37,4 +38,4 @@ abstract class DogsModule {
     }
 }
 
-class EagerTrigger
+//class EagerTrigger

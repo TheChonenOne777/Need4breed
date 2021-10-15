@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.matching.databinding.FragmentMatchingBinding
-import com.chertilov.matching.di.EagerTrigger
 import com.chertilov.matching.di.MatchingComponent
 import com.chertilov.utils.unsafeLazy
 import javax.inject.Inject

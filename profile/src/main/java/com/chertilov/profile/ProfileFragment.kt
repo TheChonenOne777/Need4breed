@@ -10,12 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
 import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.LoginMediator
 import com.chertilov.core_api.mediators.MatchingMediator
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.profile.databinding.FragmentProfileBinding
 import com.chertilov.profile.di.ProfileComponent
 import com.chertilov.utils.getColorCompat

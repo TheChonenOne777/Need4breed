@@ -9,11 +9,22 @@
         android:name="com.chertilov.auth.PhoneNumberFragment">
         <action
             android:id="@+id/action_phoneNumberFragment_to_codeFragment"
-            app:destination="@id/codeFragment"/>
+            app:destination="@id/codeFragment">
+
+            <argument
+                android:name="phoneNumber"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/codeFragment"
-        android:name="com.chertilov.auth.CodeFragment"/>
+        android:name="com.chertilov.auth.CodeFragment">
+
+        <argument
+            android:name="phoneNumber"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
 
 </navigation>

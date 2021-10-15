@@ -8,13 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.chertilov.auth.databinding.FragmentCodeBinding
-import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.core_api.mediators.DogsMediator
 import com.chertilov.core_api.mediators.ProfileMediator
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.utils.hideKeyboard
 import com.chertilov.utils.showKeyboard
 import java.text.SimpleDateFormat
@@ -34,6 +34,8 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
 
     private val viewModel: LoginViewModel by viewModels { viewModelFactory }
 
+    private val args: CodeFragmentArgs by navArgs()
+
     private lateinit var binding: FragmentCodeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +48,7 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loginResult.observe(viewLifecycleOwner) { handleResult(it) }
         viewModel.timeLeft.observe(viewLifecycleOwner) { handleLeftTime(it) }
+        viewModel.savePhoneNumber(args.phoneNumber)
         binding = FragmentCodeBinding.bind(view).also {
             with(it.input) {
                 showKeyboard()

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text.Primary.Huge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_def"
+        android:layout_marginTop="@dimen/padding_big"
+        android:layout_marginBottom="@dimen/padding_def"
+        android:text="@string/phone_number_fragment_title" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -103,4 +113,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+</LinearLayout>

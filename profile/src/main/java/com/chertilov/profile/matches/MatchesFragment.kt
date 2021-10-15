@@ -6,9 +6,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.core_api.dto.User
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.profile.R
 import com.chertilov.profile.databinding.FragmentMatchesBinding
 import com.chertilov.profile.di.ProfileComponent

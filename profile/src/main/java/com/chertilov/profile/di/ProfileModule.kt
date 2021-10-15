@@ -1,6 +1,7 @@
 package com.chertilov.auth.di
 
 import androidx.lifecycle.ViewModel
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.profile.ProfileInteractor
 import com.chertilov.profile.ProfileViewModel
 import dagger.Module
@@ -31,4 +32,4 @@ abstract class ProfileModule {
     }
 }
 
-class EagerTrigger
+//class EagerTrigger

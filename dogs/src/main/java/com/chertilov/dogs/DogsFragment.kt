@@ -7,15 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chertilov.core_api.dto.Dog
 import com.chertilov.core_api.mediators.AppWithFacade
-import com.chertilov.dogs.databinding.FragmentDogsBinding
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.dogs.di.DogsComponent
-import com.chertilov.dogs.di.EagerTrigger
 import com.chertilov.utils.bind
 import com.chertilov.utils.unsafeLazy
 import javax.inject.Inject

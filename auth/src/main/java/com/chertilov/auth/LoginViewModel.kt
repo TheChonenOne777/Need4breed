@@ -27,9 +27,7 @@ class LoginViewModel @Inject constructor(private val interactor: LoginInteractor
     fun onPhoneNumberEnter() {
         _loginResult.value = Response.Loading
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                _loginResult.value = interactor.sendPhoneNumber(phoneNumber).first()
-            }
+            interactor.sendPhoneNumber(phoneNumber).collect { _loginResult.value = it }
         }
     }
 
@@ -40,9 +38,7 @@ class LoginViewModel @Inject constructor(private val interactor: LoginInteractor
     fun onCodeEnter(code: String) {
         _loginResult.value = Response.Loading
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                _loginResult.value = interactor.sendCode(phoneNumber, code).first()
-            }
+            _loginResult.value = interactor.sendCode(phoneNumber, code).first()
         }
     }
 
@@ -59,14 +55,6 @@ class LoginViewModel @Inject constructor(private val interactor: LoginInteractor
                 .onEach { delay(1000) }
                 .collect { _timeLeft.value = it }
         }
-//        Observable.intervalRange(0, initialSeconds + 1L, 0, 1, TimeUnit.SECONDS)
-//            .map { initialSeconds - it }
-//            .execute(
-//                onSubscribe = { smsTimeDisposable = it },
-//                onNext = {
-//                    data.value.smsTimeLeft.value = it.toInt()
-//                    data.notifyObservers()
-//                })
     }
 
     companion object {

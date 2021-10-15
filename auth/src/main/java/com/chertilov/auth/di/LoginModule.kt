@@ -3,6 +3,7 @@ package com.chertilov.auth.di
 import androidx.lifecycle.ViewModel
 import com.chertilov.auth.LoginInteractor
 import com.chertilov.auth.LoginViewModel
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -31,4 +32,4 @@ abstract class LoginModule {
     }
 }
 
-class EagerTrigger
+//class LoginEagerTrigger

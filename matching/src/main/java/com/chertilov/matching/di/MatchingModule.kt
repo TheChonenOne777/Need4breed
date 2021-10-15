@@ -1,6 +1,7 @@
 package com.chertilov.matching.di
 
 import androidx.lifecycle.ViewModel
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.matching.MatchingInteractor
 import com.chertilov.matching.MatchingViewModel
 import dagger.Module
@@ -31,4 +32,4 @@ abstract class MatchingModule {
     }
 }
 
-class EagerTrigger
+//class EagerTrigger

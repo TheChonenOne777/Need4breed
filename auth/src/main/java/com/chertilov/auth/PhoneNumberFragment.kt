@@ -10,13 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.chertilov.auth.databinding.FragmentPhoneNumberBinding
-import com.chertilov.auth.di.EagerTrigger
 import com.chertilov.auth.di.LoginComponent
 import com.chertilov.core_api.base.Response
 import com.chertilov.core_api.mediators.AppWithFacade
+import com.chertilov.core_api.viewmodel.EagerTrigger
 import com.chertilov.utils.hideKeyboard
 import com.redmadrobot.inputmask.MaskedTextChangedListener
-
 import javax.inject.Inject
 
 class PhoneNumberFragment : Fragment(R.layout.fragment_phone_number) {
@@ -55,13 +54,7 @@ class PhoneNumberFragment : Fragment(R.layout.fragment_phone_number) {
         binding.apply.setOnClickListener { applyPhoneNumber() }
         binding.input.apply {
             setText(viewModel.phoneNumber)
-            addTextChangedListener(
-                MaskedTextChangedListener(
-                    "(9[00])[000]-[00]-[00]",
-                    this,
-                    textListener
-                )
-            )
+            addTextChangedListener(MaskedTextChangedListener("(9[00])[000]-[00]-[00]", this, textListener))
             setOnEditorActionListener { _, id, event ->
                 if (text.length == TOTAL_LENGTH
                     && (id == EditorInfo.IME_ACTION_DONE || event.action == KeyEvent.ACTION_DOWN && event.keyCode == KeyEvent.KEYCODE_ENTER)
@@ -94,7 +87,7 @@ class PhoneNumberFragment : Fragment(R.layout.fragment_phone_number) {
         when (result) {
             is Response.Failure -> binding.errorText.text = result.message
             is Response.Success -> {
-                findNavController().navigate(PhoneNumberFragmentDirections.actionPhoneNumberFragmentToCodeFragment())
+                findNavController().navigate(PhoneNumberFragmentDirections.actionPhoneNumberFragmentToCodeFragment("+79" + viewModel.phoneNumber))
             }
         }
     }
