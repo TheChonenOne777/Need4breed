@@ -5,4 +5,6 @@ interface DatabaseProvider {
     fun provideDogsDatabase(): DogsStorage
 
     fun provideUsersDatabase(): UsersStorage
+
+    fun provideMatchesDatabase(): MatchesStorage
 }

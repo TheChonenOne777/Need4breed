@@ -9,7 +9,11 @@
         android:name="com.chertilov.matching.MatchingFragment">
         <action
             android:id="@+id/show_match_dialog"
-            app:destination="@id/matchDialog" />
+            app:destination="@id/matchDialog">
+            <argument
+                android:name="phone_number"
+                app:argType="string" />
+        </action>
         <action
             android:id="@+id/switch_to_matching_cards_fragment"
             app:destination="@id/matchingCardsFragment"
@@ -17,21 +21,31 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <dialog
-        android:id="@+id/matchDialog"
-        android:name="com.chertilov.matching.MatchDialogFragment" />
 
     <fragment
         android:id="@+id/matchingCardsFragment"
         android:name="com.chertilov.matching.MatchingCardsFragment">
         <action
             android:id="@+id/show_match_dialog_from_cards"
-            app:destination="@id/matchDialog" />
+            app:destination="@id/matchDialog">
+            <argument
+                android:name="phone_number"
+                app:argType="string" />
+        </action>
         <action
             android:id="@+id/switch_to_matching_fragment"
             app:destination="@id/matchingFragment"
             app:popUpTo="@id/matchingFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+
+    <dialog
+        android:id="@+id/matchDialog"
+        android:name="com.chertilov.matching.MatchDialogFragment">
+        <argument
+            android:name="phone_number"
+            app:argType="string" />
+    </dialog>
 
 </navigation>

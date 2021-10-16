@@ -2,21 +2,34 @@ package com.chertilov.matching
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.chertilov.core_api.dto.User
 import com.chertilov.matching.databinding.ItemUserBinding
 
-class UsersAdapter(private val clickListener: UserlickListener) : ListAdapter<User, UsersAdapter.UserViewHolder>(UsersDiff()) {
+class UsersAdapter(private val clickListener: UserlickListener) : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
+
+    private var items: MutableList<User> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UserViewHolder(ItemUserBinding.inflate(LayoutInflater.from(parent.context)))
-            .apply { itemView.setOnClickListener { clickListener.onUserClicked(getItem(adapterPosition)) } }
+            .apply {
+                itemView.setOnClickListener {
+                    clickListener.onUserClicked(items[adapterPosition])
+                    items.removeAt(adapterPosition)
+                    notifyItemRemoved(adapterPosition)
+                }
+            }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(items[position])
+    }
+
+    override fun getItemCount() = items.size
+
+    fun setItems(newItems: List<User>) {
+        items = newItems.toMutableList()
+        notifyItemRangeChanged(0, newItems.size)
     }
 
     class UserViewHolder(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -35,12 +48,4 @@ class UsersAdapter(private val clickListener: UserlickListener) : ListAdapter<Us
 
         fun onUserClicked(user: User)
     }
-}
-
-class UsersDiff : DiffUtil.ItemCallback<User>() {
-
-    override fun areItemsTheSame(oldItem: User, newItem: User) = oldItem.phoneNumber == newItem.phoneNumber
-
-    override fun areContentsTheSame(oldItem: User, newItem: User) = oldItem == newItem
-
 }

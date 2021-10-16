@@ -68,7 +68,7 @@ class CodeFragment : Fragment(R.layout.fragment_code) {
     private fun handleResult(result: Response<String>) {
         binding.input.isEnabled = result !is Response.Loading
         binding.errorText.isVisible = result is Response.Failure
-        binding.input.showError(result is Response.Failure)
+        if (result is Response.Failure) binding.input.showError(true)
         when (result) {
             is Response.Failure -> binding.errorText.text = result.message
             is Response.Success -> profileMediator.openProfile(findNavController())

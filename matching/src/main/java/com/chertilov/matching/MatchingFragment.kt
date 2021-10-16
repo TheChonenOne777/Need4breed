@@ -47,19 +47,19 @@ class MatchingFragment : Fragment(R.layout.fragment_matching) {
             it.refresh.setOnRefreshListener { viewModel.onRefresh() }
         }
         viewModel.users.observe(viewLifecycleOwner) { handleUsers(it) }
-        viewModel.matchedUser.observe(viewLifecycleOwner) { handleMatch() }
+        viewModel.matchedUser.observe(viewLifecycleOwner) { handleMatch(it.phoneNumber) }
     }
 
     private fun handleUsers(result: Response<List<User>>) {
         binding.progress.isVisible = result is Response.Loading
         if (result is Response.Success) {
-            adapter.submitList(result.value)
+            adapter.setItems(result.value)
             binding.refresh.isRefreshing = false
             binding.stub.isVisible = result.value.isEmpty()
         }
     }
 
-    private fun handleMatch() {
-        findNavController().navigate(MatchingFragmentDirections.showMatchDialog())
+    private fun handleMatch(phoneNumber: String) {
+        findNavController().navigate(MatchingFragmentDirections.showMatchDialog(phoneNumber))
     }
 }

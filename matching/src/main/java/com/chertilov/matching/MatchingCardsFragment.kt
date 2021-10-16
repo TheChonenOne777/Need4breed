@@ -7,7 +7,9 @@ import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.chertilov.core_api.base.ToolbarView
 import com.chertilov.core_api.mediators.AppWithFacade
@@ -36,7 +38,7 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
         binding = FragmentMatchingCardsBinding.bind(view).also {
             with(it.appbar) {
                 menuListener = ToolbarView.OnMenuClickListener {
-                    findNavController().navigate(MatchingFragmentDirections.switchToMatchingCardsFragment())
+                    findNavController().navigate(MatchingCardsFragmentDirections.switchToMatchingFragment())
                 }
             }
             it.motionLayout.setTransitionListener(object : TransitionAdapter() {
@@ -53,7 +55,7 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
             })
         }
         viewModel.swipeModel.observe(viewLifecycleOwner) { it?.let { handleNewModel(it) } }
-        viewModel.matchedUser.observe(viewLifecycleOwner) { handleMatch() }
+        viewModel.matchedUser.observe(viewLifecycleOwner) { handleMatch(it.phoneNumber) }
     }
 
     private fun handleNewModel(newModel: SwipeModel) {
@@ -71,7 +73,7 @@ class MatchingCardsFragment : Fragment(R.layout.fragment_matching_cards) {
         binding.bottomDescription.text = newModel.bottom.description
     }
 
-    private fun handleMatch() {
-        findNavController().navigate(MatchingCardsFragmentDirections.showMatchDialogFromCards())
+    private fun handleMatch(phoneNumber: String) {
+        findNavController().navigate(MatchingCardsFragmentDirections.showMatchDialogFromCards(phoneNumber))
     }
 }

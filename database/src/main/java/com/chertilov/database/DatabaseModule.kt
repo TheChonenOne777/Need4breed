@@ -3,10 +3,13 @@ package com.chertilov.database
 import android.content.Context
 import androidx.room.Room
 import com.chertilov.core_api.database.DogsStorage
+import com.chertilov.core_api.database.MatchesStorage
 import com.chertilov.core_api.database.UsersStorage
 import com.chertilov.database.dao.DogsDao
+import com.chertilov.database.dao.MatchesDao
 import com.chertilov.database.dao.UserDao
 import com.chertilov.database.interfaces.DogsRoomStorage
+import com.chertilov.database.interfaces.MatchesRoomStorage
 import com.chertilov.database.interfaces.UsersRoomStorage
 import dagger.Module
 import dagger.Provides
@@ -27,11 +30,19 @@ object DatabaseModule {
 
     @Provides
     @Reusable
+    fun provideMatchesDao(database: AppDatabase): MatchesDao = database.matchesDao()
+
+    @Provides
+    @Reusable
     fun provideDogsStorage(dao: DogsDao): DogsStorage = DogsRoomStorage(dao, Dispatchers.IO)
 
     @Provides
     @Reusable
     fun provideUsersStorage(dao: UserDao): UsersStorage = UsersRoomStorage(dao, Dispatchers.IO)
+
+    @Provides
+    @Reusable
+    fun provideMatchesStorage(dao: MatchesDao): MatchesStorage = MatchesRoomStorage(dao, Dispatchers.IO)
 
     @Provides
     @Singleton

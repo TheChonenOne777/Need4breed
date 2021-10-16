@@ -6,7 +6,7 @@ data class User(
     val nickname: String,
     val description: String,
     val breed: String,
-    val matches: Set<String>
+    val matches: Set<String>,
 ) {
     constructor(phoneNumber: String) : this(phoneNumber, "", "", "", "", setOf())
 }

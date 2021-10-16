@@ -41,8 +41,10 @@ class MatchingViewModel @Inject constructor(private val interactor: MatchingInte
         viewModelScope.launch { getUsers() }
     }
 
-    fun onMatchDialogOpened(){
-        _matchedUser.value = interactor.getRecentlyMatchedUser()
+    fun onMatchDialogOpened(phoneNumber: String) {
+        viewModelScope.launch {
+            interactor.getRecentlyMatchedUser(phoneNumber).collect { _matchedUser.value = it }
+        }
     }
 
     fun onMatchClicked(user: User) {
