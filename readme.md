@@ -22,3 +22,19 @@ Possible features:
 - Notification when someone matches your profile
 - Chat with the match
 - Different ways of choosing who's to match with (stack with swiping or grid layout with pictures)
+
+Implemented for current moment:
+- Multimodule structure
+- Navigation
+- Room  
+- Authtorization (on local db)
+- Profile screen (info of your pet)
+- Matching screen with cool loading animation
+- Alternative matching screen (stack with swiping)
+- List of matches
+- All logic implemented on local db
+- Call dialog instead of chat with your match
+
+Todo:
+- BaaS (authorization with matching logic)
+- Chat screen
